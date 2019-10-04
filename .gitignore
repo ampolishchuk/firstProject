@@ -2,3 +2,7 @@
 node_modules
 dist
 .vscode
+
+#files
+vscode.code-workspace
+bash.exe.stackdump
