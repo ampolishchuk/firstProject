@@ -1,0 +1,9 @@
+@mixin cards($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.cards#{$mixinClass}
+        display: grid
+        background-color: grey
+        height: 100px
+        @content

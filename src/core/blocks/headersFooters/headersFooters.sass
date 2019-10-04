@@ -1,0 +1,9 @@
+@mixin headersFooters($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.headersFooters#{$mixinClass}
+        display: grid
+        background-color: grey
+        height: 100px
+        @content

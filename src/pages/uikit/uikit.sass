@@ -1,3 +1,8 @@
 @import '../../core/init/init'
 
-@include b-page()
+@include page()
+    @include page_uikit()
+        @include colorsTypes()
+        @include formElements()
+        @include cards()
+        @include headersFooters()

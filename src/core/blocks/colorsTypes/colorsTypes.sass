@@ -1,0 +1,9 @@
+@mixin colorsTypes($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.colorsTypes#{$mixinClass}
+        display: grid
+        background-color: grey
+        height: 100px
+        @content

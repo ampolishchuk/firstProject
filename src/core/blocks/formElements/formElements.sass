@@ -1,0 +1,9 @@
+@mixin formElements($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.formElements#{$mixinClass}
+        display: grid
+        background-color: grey
+        height: 100px
+        @content

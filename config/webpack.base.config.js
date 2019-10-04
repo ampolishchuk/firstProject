@@ -40,8 +40,8 @@ PATHS.a_templates.map((s_templateName) => {
 
 console.log('Blocks: ')
 console.log(PATHS.a_blocks)
-console.log('Blocks img: ')
-console.log(PATHS.a_blocksImg)
+console.log('Blocks with img: ')
+console.log(PATHS.a_blocksWithImg)
 console.log('Pages: ')
 console.log(PATHS.a_pages)
 console.log('Templates: ')

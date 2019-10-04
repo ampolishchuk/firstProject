@@ -8,7 +8,11 @@ block css
 block title 
     | index.html
 block body 
-    +b_page()
+    +page('page_uikit')
+        +colorsTypes()
+        +formElements()
+        +cards()
+        +headersFooters()
     +js('vendors.js')
     +js('main.js')  
     +js('uikit.js')

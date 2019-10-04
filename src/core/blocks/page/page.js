@@ -1,4 +1,4 @@
-export default function b_page() {
+export default function page() {
     console.log('page')
     return this
 }
