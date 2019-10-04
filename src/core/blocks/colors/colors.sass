@@ -1,0 +1,8 @@
+=colors($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.colors#{$mixinClass}
+        height: 900px
+        background-color: red
+        @content

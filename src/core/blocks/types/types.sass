@@ -1,0 +1,8 @@
+=types($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.types#{$mixinClass}
+        height: 900px
+        background-color: blue
+        @content
