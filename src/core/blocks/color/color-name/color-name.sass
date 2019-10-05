@@ -1,0 +1,6 @@
+=color-name($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.color-name#{$mixinClass}
+        @content

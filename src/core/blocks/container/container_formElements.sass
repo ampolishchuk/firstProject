@@ -1,8 +1,8 @@
-=formElements($mixinClass:'')
+=container_formElements($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.formElements#{$mixinClass}
+    &.container_formElements#{$mixinClass}
         display: grid
         background-color: grey
         height: 100px

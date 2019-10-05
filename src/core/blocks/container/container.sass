@@ -1,0 +1,14 @@
+@import 'container_colorsTypes'
+@import 'container_formElements'
+@import 'container_cards'
+@import 'container_headersFooters'
+    
+=container($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.container#{$mixinClass}
+        width: 1440px
+        background-color: red
+        margin: 0 auto
+        @content

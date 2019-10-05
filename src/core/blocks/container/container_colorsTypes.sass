@@ -1,8 +1,8 @@
-=colorsTypes($mixinClass:'')
+=container_colorsTypes($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.colorsTypes#{$mixinClass}
+    &.container_colorsTypes#{$mixinClass}
         display: grid
         grid-template-columns: 1fr 1fr
         @content

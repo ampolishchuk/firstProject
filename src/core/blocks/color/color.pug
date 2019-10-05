@@ -1,0 +1,13 @@
+include color-example/color-example
+include color-name/color-name
+include color-hex/color-hex
+
+mixin color([name, hex], mixinClass)
+    - var mixinClass = mixinClass?' ' + mixinClass:''
+
+    div(class=`color${mixinClass}`)
+        +color-example(mixinClass)
+        +color-name(mixinClass)
+            | #{name}
+        +color-hex(mixinClass)
+            | #{hex}

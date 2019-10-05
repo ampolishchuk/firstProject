@@ -1,0 +1,5 @@
+mixin color-hex(mixinClass)
+    - var mixinClass = mixinClass?mixinClass:''
+
+    span(class=`color-hex${mixinClass}`)
+        block

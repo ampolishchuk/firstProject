@@ -1,0 +1,6 @@
+=color-example($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.color-example#{$mixinClass}
+        @content

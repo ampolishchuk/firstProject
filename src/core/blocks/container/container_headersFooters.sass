@@ -1,8 +1,8 @@
-=cards($mixinClass:'')
+=container_headersFooters($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.cards#{$mixinClass}
+    &.container_headersFooters#{$mixinClass}
         display: grid
         background-color: grey
         height: 100px

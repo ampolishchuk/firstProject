@@ -1,11 +1,15 @@
 @import '../../core/init/init'
 
-+page() 
++page()
     +page_uikit()
-    +colorsTypes()
-        +page_container()
-        +colors()
-        +types()
-    +formElements()
-    +cards()
-    +headersFooters()
+    +panel()
+        +container()
+            +container_colorsTypes
+            +colors()
+            +types()
+        +container()
+            +container_formElements()
+        +container()
+            +container_cards()
+        +container()
+            +container_headersFooters

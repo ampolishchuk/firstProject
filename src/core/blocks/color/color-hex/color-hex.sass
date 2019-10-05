@@ -1,0 +1,6 @@
+=color-hex($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.color-hex#{$mixinClass}
+        @content
