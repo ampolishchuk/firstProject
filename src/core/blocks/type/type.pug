@@ -1,0 +1,12 @@
+include type-example/type-example
+include type-tag/type-tag
+
+mixin type([tag, example], mixinClass)
+    - var mixinClass = mixinClass?' ' + mixinClass:''
+
+    div(class=`type${mixinClass}`)
+        +type-tag(mixinClass)
+            | #{tag}
+        +type-example(mixinClass)
+            | #{example}
+        block

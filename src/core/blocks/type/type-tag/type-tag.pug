@@ -1,0 +1,6 @@
+mixin type-tag(mixinClass)
+    - var mixinClass = mixinClass?' ' + mixinClass:''
+
+    div(class=`type-tag${mixinClass}`)
+        
+        block

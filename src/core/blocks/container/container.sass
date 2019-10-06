@@ -9,6 +9,10 @@
 
     >.container#{$mixinClass}
         width: 1440px
-        background-color: red
+        background-color: grey
         margin: 0 auto
+        +container_colorsTypes()
+        +container_formElements()
+        +container_cards()        
+        +container_headersFooters()
         @content

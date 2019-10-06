@@ -1,3 +1,9 @@
 // responsive sizes
 
 // colors
+$color_dark: #1F2041
+$color_green: #6FCF97
+$color_purple: #BC9CFF
+
+@function shade($color, $percentage) 
+    @return mix(white, $color, 100 - $percentage)

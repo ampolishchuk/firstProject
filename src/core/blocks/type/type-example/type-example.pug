@@ -1,0 +1,5 @@
+mixin type-example(mixinClass)
+    - var mixinClass = mixinClass?' ' + mixinClass:''
+
+    span(class=`type-example${mixinClass}`)        
+        block

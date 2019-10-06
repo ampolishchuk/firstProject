@@ -1,0 +1,14 @@
+@import 'type-example/type-example'
+@import 'type-tag/type-tag'
+    
+@mixin type($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.type#{$mixinClass}
+        width: 405px
+        height: 70px
+        margin-bottom: 20px
+        +type-example()
+        +type-tag()
+        @content

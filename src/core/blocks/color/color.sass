@@ -1,6 +1,16 @@
+@import 'color-example/color-example'
+@import 'color-hex/color-hex'
+@import 'color-name/color-name'
+    
 =color($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
     >.color#{$mixinClass}
+        width: 270px
+        height: 70px
+        margin-bottom: 20px
+        +color-example()
+        +color-hex()
+        +color-name()
         @content
