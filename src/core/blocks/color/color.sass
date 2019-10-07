@@ -7,8 +7,10 @@
         $mixinClass: '.#{$mixinClass}'
 
     >.color#{$mixinClass}
-        width: 270px
-        height: 70px
+        display: grid
+        grid-template-columns: 70px 1fr
+        grid-column-gap: 40px
+        width: 300px
         margin-bottom: 20px
         +color-example()
         +color-hex()

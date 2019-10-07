@@ -1,9 +1,17 @@
+// sizes
+
+
 // responsive sizes
 
 // colors
+@function shade($color, $percentage) 
+    @return mix(white, $color, 100% - $percentage)
+
+
 $color_dark: #1F2041
+$color_dark75: shade($color_dark, 75%)
+$color_dark50: shade($color_dark, 50%)
+$color_dark25: shade($color_dark, 25%)
+$color_dark5: shade($color_dark, 5%)
 $color_green: #6FCF97
 $color_purple: #BC9CFF
-
-@function shade($color, $percentage) 
-    @return mix(white, $color, 100 - $percentage)

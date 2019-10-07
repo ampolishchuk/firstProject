@@ -2,12 +2,12 @@ include color-example/color-example
 include color-name/color-name
 include color-hex/color-hex
 
-mixin color([name, hex], mixinClass)
-    - var mixinClass = mixinClass?' ' + mixinClass:''
+mixin color([name, hex], color_mix, example_mix, name_mix, hex_mix)
+    - var color_mix = color_mix?' ' + color_mix:''
 
-    div(class=`color${mixinClass}`)
-        +color-example(mixinClass)
-        +color-name(mixinClass)
+    div(class=`color${color_mix}`)
+        +color-example(example_mix)
+        +color-name(name_mix)
             | #{name}
-        +color-hex(mixinClass)
+        +color-hex(hex_mix)
             | #{hex}

@@ -1,7 +1,7 @@
-=colors($mixinClass:'')
+@mixin type_h2($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.colors#{$mixinClass}
-        padding: 145px 150px
+    &.type_h2#{$mixinClass}
+        @extend h2
         @content

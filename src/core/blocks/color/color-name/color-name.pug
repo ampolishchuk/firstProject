@@ -1,5 +1,5 @@
 mixin color-name(mixinClass)
-    - var mixinClass = mixinClass?mixinClass:''
+    - var mixinClass = mixinClass?' ' + mixinClass:''
 
     h2(class=`color-name${mixinClass}`)
         block

@@ -1,7 +1,0 @@
-@mixin color-example_shade25($mixinClass:'')
-    @if $mixinClass != ''
-        $mixinClass: '.#{$mixinClass}'
-
-    &.color-example_shade25#{$mixinClass}
-        background-color: shade($color_dark, 25%);
-        @content

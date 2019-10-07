@@ -1,14 +1,23 @@
 @import 'type-example/type-example'
 @import 'type-tag/type-tag'
+
+@import 'type_h1'
+@import 'type_h2'
+@import 'type_h3'
     
 @mixin type($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
     >.type#{$mixinClass}
-        width: 405px
-        height: 70px
-        margin-bottom: 20px
+        display: grid
+        grid-template-columns: 40px 1fr
+        grid-column-gap: 30px
+        width: 426px
+        margin-bottom: 50px
         +type-example()
-        +type-tag()
+        +type-tag()        
+        +type_h1()
+        +type_h2()
+        +type_h3()
         @content
