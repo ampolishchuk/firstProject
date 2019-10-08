@@ -1,0 +1,8 @@
+@mixin element-title($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.element-title#{$mixinClass}
+        width: 50%
+        line-height: 33px
+        @content

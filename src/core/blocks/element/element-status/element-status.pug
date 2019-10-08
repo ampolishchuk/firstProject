@@ -1,0 +1,5 @@
+mixin element-status(mod)
+    - var mod = attributes.mod?' ' + attributes.mod:''
+
+    span(class=`element-status${mod}`)        
+        block

@@ -1,0 +1,20 @@
+@import 'input_hovered'
+    
+=input($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.input#{$mixinClass}
+        width: 320px
+        height: 42px
+        padding: 0 15px
+        border: 1px solid $color_dark25
+        border-radius: 4px
+        outline: none
+        &::placeholder
+            color: $color_dark25
+        &:hover,
+        &:focus
+            border: 1px solid $color_dark50
+        +input_hovered()
+        @content

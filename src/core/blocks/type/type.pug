@@ -1,12 +1,16 @@
 include type-example/type-example
 include type-tag/type-tag
 
-mixin type([tag, example], type_mix, tag_mix, example_mix)
-    - var type_mix = type_mix?' ' + type_mix:''
+mixin type()
+    - var elem = attributes.elem?attributes.elem:{}
+    - var mod = attributes.mod?' ' + attributes.mod:''
 
-    div(class=`type${type_mix}`)
-        +type-tag(tag_mix)
-            | #{tag}
-        +type-example(example_mix)
-            | #{example}
+    - elem.tag = elem.tag?elem.tag:{}
+    - elem.example = elem.example?elem.example:{}
+
+    div(class=`type${mod}`)
+        +type-tag(mod=elem.tag.mod)
+            | #{mod=elem.tag.block}
+        +type-example(mod=elem.example.mod)
+            | #{mod=elem.example.block}
         block

@@ -1,0 +1,16 @@
+include element-status/element-status
+include element-title/element-title
+
+mixin element()
+    - var elem = attributes.elem?attributes.elem:{}
+    - var mod = attributes.mod?' ' + attributes.mod:''
+
+    - elem.title = elem.title?elem.title:{}
+    - elem.status = elem.status?elem.status:{}
+
+    div(class=`element${mod}`)
+        +element-title(mod=elem.title.mod)
+            | #{elem.title.block}
+        +element-status(mod=elem.status.mod)
+            | #{elem.status.block}
+        block

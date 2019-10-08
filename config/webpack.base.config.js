@@ -14,7 +14,9 @@ const PATHS = {
     s_root: 'root'
 }
 // Директории точек вхождения для вебпака
-PATHS.s_blocks = `${PATHS.s_src}/core/blocks`;
+PATHS.s_core = `${PATHS.s_src}/core`;
+PATHS.s_blocks = `${PATHS.s_core}/blocks`;
+PATHS.s_fonts = `${PATHS.s_core}/fonts`;
 PATHS.s_pages = `${PATHS.s_src}/pages`;
 PATHS.s_templates = `${PATHS.s_pages}/_templates`;
 
@@ -102,12 +104,21 @@ module.exports = {
                     }
                 ]
             },
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
+            { 
+                test: /\.(png|jpg|gif)$/, 
+                loader: 'url-loader',
                 options: {
+                    limit: 8192,
                     name: '[name].[ext]'
-                }
+                } 
+            },
+            { 
+                test: /\.(woff|woff2|ttf|eot|svg)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 5000,
+                    name: '[name].[ext]'
+                } 
             }
         ]
     },
@@ -122,11 +133,11 @@ module.exports = {
         }),
         new CopyWebpackPlugin([            
             { from: `${PATHS.s_src}/${PATHS.s_root}` },
+            { from: `${PATHS.s_fonts}`, to: 'fonts' },
 
-            ...PATHS.a_blocksWithImg.map(s_blockName => ({
-                from: `${PATHS.s_blocks}/${s_blockName}/img`,
-                to: `${PATHS.s_img}/${s_blockName}` 
-            }))
+            ...PATHS.a_blocksWithImg.map(s_blockName => (
+                { from: `${PATHS.s_blocks}/${s_blockName}/img`, to: `img` }
+            ))
         ]),
     ],
 } 

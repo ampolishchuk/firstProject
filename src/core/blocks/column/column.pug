@@ -1,6 +1,6 @@
-mixin container()
+mixin column()
     - var elem = attributes.elem?attributes.elem:{}
     - var mod = attributes.mod?' ' + attributes.mod:''
 
-    section(class=`container${mod}`)
+    section(class=`column${mod}`)
         block

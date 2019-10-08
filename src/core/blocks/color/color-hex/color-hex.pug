@@ -1,5 +1,5 @@
-mixin color-hex(mixinClass)
-    - var mixinClass = mixinClass?' ' + mixinClass:''
+mixin color-hex()
+    - var mod = attributes.mod?' ' + attributes.mod:''
 
-    span(class=`color-hex${mixinClass}`)
+    span(class=`color-hex${mod}`)
         block

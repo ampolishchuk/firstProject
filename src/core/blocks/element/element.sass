@@ -1,0 +1,15 @@
+@import 'element-status/element-status'
+@import 'element-title/element-title'
+    
+=element($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.element#{$mixinClass}
+        display: flex
+        flex-wrap: wrap
+        width: 320px
+        margin-bottom: 8px
+        +element-status()
+        +element-title()
+        @content

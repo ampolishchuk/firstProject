@@ -1,6 +1,7 @@
-mixin container()
+mixin select()
     - var elem = attributes.elem?attributes.elem:{}
     - var mod = attributes.mod?' ' + attributes.mod:''
 
-    section(class=`container${mod}`)
+    select(class=`select .material-icons${mod}`)
+        option hello
         block

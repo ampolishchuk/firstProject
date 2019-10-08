@@ -1,17 +1,26 @@
-// sizes
+// fonts
+=font-face($family, $path, $svg, $weight: normal, $style: normal)
+  @font-face
+    font-family: $family
+    src: url('#{$path}.eot')
+    src: url('#{$path}.eot?#iefix') format('embedded-opentype'), url('#{$path}.woff') format('woff'), url('#{$path}.ttf') format('truetype'), url('#{$path}.svg##{$svg}') format('svg')
+    font-weight: $weight
+    font-style: $style
 
+// sizes
+$size_containerWidth: 1440px;
 
 // responsive sizes
 
 // colors
-@function shade($color, $percentage) 
-    @return mix(white, $color, 100% - $percentage)
+@function tint($color, $percentage) 
+    @return mix(white, $color, $percentage)
 
 
 $color_dark: #1F2041
-$color_dark75: shade($color_dark, 75%)
-$color_dark50: shade($color_dark, 50%)
-$color_dark25: shade($color_dark, 25%)
-$color_dark5: shade($color_dark, 5%)
+$color_dark75: tint($color_dark, 25%)
+$color_dark50: tint($color_dark, 50%)
+$color_dark25: tint($color_dark, 75%)
+$color_dark5: tint($color_dark, 95%)
 $color_green: #6FCF97
 $color_purple: #BC9CFF

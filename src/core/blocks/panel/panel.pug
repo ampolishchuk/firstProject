@@ -1,5 +1,6 @@
-mixin panel(mixinClass)
-    - var mixinClass = mixinClass?' ' + mixinClass:''
+mixin panel()
+    - var elem = attributes.elem?attributes.elem:{}
+    - var mod = attributes.mod?' ' + attributes.mod:''
 
-    section(class=`panel${mixinClass}`)
+    section(class=`panel${mod}`)
         block

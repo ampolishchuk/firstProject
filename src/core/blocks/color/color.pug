@@ -2,12 +2,19 @@ include color-example/color-example
 include color-name/color-name
 include color-hex/color-hex
 
-mixin color([name, hex], color_mix, example_mix, name_mix, hex_mix)
-    - var color_mix = color_mix?' ' + color_mix:''
+mixin color()
+    - var elem = attributes.elem?attributes.elem:{}
+    - var mod = attributes.mod?' ' + attributes.mod:''
 
-    div(class=`color${color_mix}`)
-        +color-example(example_mix)
-        +color-name(name_mix)
-            | #{name}
-        +color-hex(hex_mix)
-            | #{hex}
+    - elem.example = elem.example?elem.example:{}
+    - elem.name = elem.name?elem.name:{}
+    - elem.hex = elem.hex?elem.hex:{}
+
+    div(class=`color${mod}`)
+        +color-example(mod=elem.example.mod)
+            | #{elem.example.block}
+        +color-name(mod=elem.name.mod)
+            | #{elem.name.block}
+        +color-hex(mod=elem.hex.mod)
+            | #{elem.hex.block}
+        block

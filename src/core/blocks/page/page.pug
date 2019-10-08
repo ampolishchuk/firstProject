@@ -1,6 +1,6 @@
-mixin page(mixinClass)
-    - var mixinClass = mixinClass?' ' + mixinClass:''
+mixin page()
+    - var elem = attributes.elem?attributes.elem:{}
+    - var mod = attributes.mod?' ' + attributes.mod:''
 
-    body(class=`page${mixinClass}`)
-        
+    body(class=`page${mod}`)
         block

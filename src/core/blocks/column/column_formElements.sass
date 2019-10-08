@@ -1,0 +1,10 @@
+=column_formElements($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.column_formElements#{$mixinClass}
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        padding: 130px 0
+        @content

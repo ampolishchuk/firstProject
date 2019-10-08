@@ -1,5 +1,5 @@
-mixin type-tag(mixinClass)
-    - var mixinClass = mixinClass?' ' + mixinClass:''
+mixin type-tag()
+    - var mod = attributes.mod?' ' + attributes.mod:''
 
-    div(class=`type-tag${mixinClass}`)
+    div(class=`type-tag${mod}`)
         block

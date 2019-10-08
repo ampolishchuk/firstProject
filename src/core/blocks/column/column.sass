@@ -1,0 +1,11 @@
+@import 'column_colorsTypes'
+@import 'column_formElements'
+    
+=column($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.column#{$mixinClass}     
+        +column_colorsTypes()
+        +column_formElements()
+        @content

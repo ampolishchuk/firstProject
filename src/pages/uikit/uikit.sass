@@ -1,14 +1,16 @@
 @import '../../core/init/init'
 
-+fontface('Montserrat')
++font-face('Montserrat', '/fonts/Montserrat-Regular', 'Montserrat')
 
 +page()
     +panel()
         +container()
-            +colors()
-                +color()                        
-            +types()
+            +column()
+                +color()
                 +type()
+                +element()
+                    +input()
+                    +select()
         +container()            
         +container()            
         +container()
