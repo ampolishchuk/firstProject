@@ -1,0 +1,9 @@
+=select-option($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.select-option#{$mixinClass}
+        background-color: red
+        line-height: 40px
+        font: inherit
+        @content

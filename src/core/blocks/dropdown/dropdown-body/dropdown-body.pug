@@ -1,0 +1,5 @@
+mixin dropdown-body()
+    - var mod = attributes.mod?' ' + attributes.mod:''
+
+    li(class=`dropdown-body${mod}`)
+        block

@@ -1,0 +1,6 @@
+=dropdown-element($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.dropdown-element#{$mixinClass}
+        @content

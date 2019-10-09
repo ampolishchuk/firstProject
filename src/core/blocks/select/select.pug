@@ -1,7 +1,11 @@
+include select-option/select-option
+
 mixin select()
-    - var elem = attributes.elem?attributes.elem:{}
+    - var options = attributes.options?attributes.options:{}
     - var mod = attributes.mod?' ' + attributes.mod:''
 
-    select(class=`select .material-icons${mod}`)
-        option hello
+    select(class=`select${mod}`)
+        each prop, index in options
+            +select-option(mod=prop.mod, attr=prop.attr)
+                | #{prop.block}
         block

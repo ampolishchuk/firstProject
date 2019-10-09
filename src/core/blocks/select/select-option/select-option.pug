@@ -1,0 +1,6 @@
+mixin select-option()
+    - var mod = attributes.mod?' ' + attributes.mod:''
+    - var attr = attributes.attr?attributes.attr:{}
+
+    option(class=`select-option${mod}`)&attributes(attr)
+        block

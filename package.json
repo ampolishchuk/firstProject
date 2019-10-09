@@ -41,5 +41,7 @@
   },
   "homepage": "https://github.com/ampolishchuk/start#readme",
   "description": "My first project",
-  "dependencies": {}
+  "dependencies": {
+    "material-icons": "^0.3.1"
+  }
 }

@@ -1,3 +1,5 @@
+@import 'select-option/select-option'
+    
 =select($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
@@ -5,10 +7,16 @@
     >.select#{$mixinClass}
         width: 320px
         height: 42px
-        padding: 0
+        padding: 0 15px
         border: 1px solid $color_dark25
         border-radius: 4px
         outline: none
-        background: url('/img/arrow_down.png') no-repeat right
+        background: $icon_arrowDown
+        background-position-x: 286px
         appearance: none
+        &:hover
+            border: 1px solid $color_dark50
+        +select-option()
         @content
+        
+        
