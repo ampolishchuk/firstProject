@@ -1,0 +1,18 @@
+@import 'selectDate-arrival/selectDate-arrival'
+@import 'selectDate-leave/selectDate-leave'
+    
+=selectDate($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.selectDate#{$mixinClass}
+        width: 100%
+        display: flex
+        justify-content: space-between
+        +selectDate-arrival()
+            +title()
+            +dropdown()
+        +selectDate-leave()
+            +title()
+            +dropdown()
+        @content

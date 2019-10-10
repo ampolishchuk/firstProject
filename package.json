@@ -42,6 +42,8 @@
   "homepage": "https://github.com/ampolishchuk/start#readme",
   "description": "My first project",
   "dependencies": {
+    "jquery": "^3.4.1",
+    "jquery-mask-plugin": "^1.14.16",
     "material-icons": "^0.3.1"
   }
 }

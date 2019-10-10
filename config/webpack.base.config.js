@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path'); // Абсолютные пути
 const fs = require('fs'); // Работа с файловой системой
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // Управляет html файлами
@@ -139,6 +140,10 @@ module.exports = {
                 { from: `${PATHS.s_blocks}/${s_blockName}/img`, to: `img` }
             ))
         ]),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+          })
     ],
 } 
  

@@ -1,0 +1,13 @@
+include title-maintitle/title-maintitle
+include title-subtitle/title-subtitle
+
+mixin title()
+    - var mod = attributes.mod?' ' + attributes.mod:''
+    - var type = attributes.type?attributes.type:''
+    - var block = attributes.block?attributes.block:''
+    - var subtitle = attributes.subtitle?attributes.subtitle:false
+
+    div(class=`title${mod}`)
+        +title-maintitle(type=type, block=block)
+        if subtitle
+            +title-subtitle(type=subtitle.type, block=subtitle.block)

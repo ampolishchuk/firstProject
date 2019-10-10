@@ -1,0 +1,14 @@
+mixin title-subtitle()
+    - var mod = attributes.mod?' ' + attributes.mod:''
+    - var type = attributes.type?attributes.type:'h3'
+    - var block = attributes.block?attributes.block:'Subtitle'
+
+    if type=='h1'
+        h1(class=`title-subtitle${mod}`)
+            | #{block}
+    else if type=='h2'
+        h2(class=`title-subtitle${mod}`)
+            | #{block}
+    else if type=='h3'
+        h3(class=`title-subtitle${mod}`)
+            | #{block}
