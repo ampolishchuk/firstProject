@@ -1,13 +1,11 @@
-include title-maintitle/title-maintitle
-include title-subtitle/title-subtitle
+include title-text/title-text
 
 mixin title()
     - var mod = attributes.mod?' ' + attributes.mod:''
-    - var type = attributes.type?attributes.type:''
-    - var block = attributes.block?attributes.block:''
-    - var subtitle = attributes.subtitle?attributes.subtitle:false
+    - var text = attributes.text?attributes.text:{}
+    - var subtext = attributes.subtext?attributes.subtext:{}
+    - subtext.mod = 'title-text_subtext' + (subtext.mod?' ' + subtext.mod:'')
 
-    div(class=`title${mod}`)
-        +title-maintitle(type=type, block=block)
-        if subtitle
-            +title-subtitle(type=subtitle.type, block=subtitle.block)
+    span(class=`title${mod}`)
+        +title-text(mod=text.mod, tag=text.tag, val=text.val)
+        +title-text(mod=subtext.mod, tag=subtext.tag, val=subtext.val)

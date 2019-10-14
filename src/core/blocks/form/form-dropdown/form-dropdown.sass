@@ -1,0 +1,13 @@
+@import 'form-dropdown-body/form-dropdown-body'
+    
+=form-dropdown($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.form-dropdown#{$mixinClass}
+        display: flex
+        flex-wrap: wrap
+        width: 100%
+        +form-input()
+        +form-dropdown-body
+        @content

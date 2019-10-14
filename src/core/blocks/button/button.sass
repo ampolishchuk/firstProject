@@ -1,0 +1,15 @@
+@import 'button_input'
+@import 'button_dropdown'
+@import 'button_confirm'
+    
+=button($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.button#{$mixinClass}
+        background-color: inherit
+        border: none
+        +button_input()
+        +button_dropdown()
+        +button_confirm()
+        @content

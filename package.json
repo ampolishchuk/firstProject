@@ -44,6 +44,7 @@
   "dependencies": {
     "jquery": "^3.4.1",
     "jquery-mask-plugin": "^1.14.16",
+    "jquery.maskedinput": "^1.4.1",
     "material-icons": "^0.3.1"
   }
 }

@@ -1,0 +1,11 @@
+include form-input/form-input
+include form-dropdown/form-dropdown
+include form-selectDate/form-selectDate
+include form-checkbox/form-checkbox
+
+mixin form()
+    - var elem = attributes.elem?attributes.elem:{}
+    - var mod = attributes.mod?' ' + attributes.mod:''
+
+    form(class=`form${mod}`)
+        block

@@ -1,0 +1,11 @@
+=form-input($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.form-input#{$mixinClass}
+        position: relative
+        width: 100%
+        +title()
+        +input()
+        +button()
+        @content

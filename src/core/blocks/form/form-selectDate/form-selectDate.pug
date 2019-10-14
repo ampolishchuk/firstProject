@@ -1,0 +1,17 @@
+mixin form-selectDate()
+    - var mod = attributes.mod?' ' + attributes.mod:''
+    - var arrival = attributes.arrival?attributes.arrival:{} 
+    - var leave = attributes.leave?attributes.leave:{} 
+
+    div(class=`form-selectDate${mod}`)
+        +form-dropdown(
+            title=arrival.title,
+            input=arrival.input
+            button=arrival.button
+        )  
+        +form-dropdown(
+            title=leave.title,
+            input=leave.input
+            button=leave.button
+        )
+        block

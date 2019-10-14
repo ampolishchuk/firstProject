@@ -1,12 +1,16 @@
+@import 'input-button'
 @import 'input_hovered'
+@import 'input_checkbox'
     
 =input($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
     >.input#{$mixinClass}
+        font-family: 'Montserrat'
+        box-sizing: border-box
         width: 100%
-        height: 42px
+        height: 44px
         padding: 0 15px
         border: 1px solid $color_dark25
         border-radius: 4px
@@ -17,4 +21,5 @@
         &:focus
             border: 1px solid $color_dark50
         +input_hovered()
+        +input_checkbox()
         @content

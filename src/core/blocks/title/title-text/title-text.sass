@@ -1,0 +1,9 @@
+@import 'title-text_subtext'
+    
+=title-text($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    >.title-text#{$mixinClass}
+        +title-text_subtext()
+        @content

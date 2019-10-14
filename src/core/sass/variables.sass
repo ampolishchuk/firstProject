@@ -1,3 +1,16 @@
+//test mixins
+=test($textColor:'', $bodyColor:'')
+  @if $textColor
+      &.test_text
+        color: $textColor
+  @if $bodyColor
+      &.test_body
+      background-color: $bodyColor
+
+
+
+
+  
 // fonts
 =font-face($family, $path, $svg, $weight: normal, $style: normal)
   @font-face

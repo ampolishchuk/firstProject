@@ -1,0 +1,7 @@
+mixin button()    
+    - var mod = attributes.mod?' ' + attributes.mod:''
+    - var js = attributes.js?' ' + attributes.js:''
+    - var text = attributes.text?attributes.text:''
+
+    button(class=`button${mod}${js}`)
+        | #{text}

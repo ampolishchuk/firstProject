@@ -1,0 +1,7 @@
+mixin title-text()
+    - var mod = attributes.mod?' ' + attributes.mod:''
+    - var tag = attributes.tag?attributes.tag:'span'
+    - var val = attributes.val?attributes.val:''
+
+    #{tag}(class=`${tag} title-text${mod}`)
+        | #{val} 

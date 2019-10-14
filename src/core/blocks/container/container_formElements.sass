@@ -3,8 +3,7 @@
         $mixinClass: '.#{$mixinClass}'
 
     &.container_formElements#{$mixinClass}
-        display: grid
-        grid-template-columns: 1fr 1fr 1fr
-        grid-column-gap: 28px
+        display: flex
+        justify-content: space-evenly
         height: 1855px
         @content

@@ -1,0 +1,10 @@
+=input-button($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+
+    &.input-button#{$mixinClass}     
+        position: absolute
+        right: 0 
+        background-color: blue
+        @content

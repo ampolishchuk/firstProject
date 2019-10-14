@@ -1,0 +1,15 @@
+include form-dropdown-body/form-dropdown-body
+
+mixin form-dropdown()
+    - var mod = attributes.mod?' ' + attributes.mod:''
+    - var title = attributes.title?attributes.title:{}    
+    - var input = attributes.input?attributes.input:{}
+    - var button = attributes.button?attributes.button:{}
+    - var body = attributes.body?attributes.body:{}    
+    - button.mod = 'button_dropdown' + (button.mod?' ' + button.mod:'')
+
+    
+    div(class=`form-dropdown${mod}`)
+        +form-input(title=title, input=input, button=button)
+        +form-dropdown-body(mod=body.mod, js=body.js)
+            block

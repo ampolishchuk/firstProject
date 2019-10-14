@@ -1,0 +1,10 @@
+=button_dropdown($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.button_dropdown#{$mixinClass}
+        &::after
+            font-family: 'Material Icons'
+            content: '\e5cf'
+            font-size: 24px
+        @content

@@ -1,5 +1,4 @@
-@import 'title-maintitle/title-maintitle'
-@import 'title-subtitle/title-subtitle'
+@import 'title-text/title-text'
     
 =title($mixinClass:'')
     @if $mixinClass != ''
@@ -10,6 +9,5 @@
         justify-content: space-between
         width: 100%
         margin-bottom: 5px
-        +title-maintitle()
-        +title-subtitle()
+        +title-text()
         @content
