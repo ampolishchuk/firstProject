@@ -1,6 +1,8 @@
 mixin page()
-    - var elem = attributes.elem?attributes.elem:{}
-    - var mod = attributes.mod?' ' + attributes.mod:''
+    - var mod = ''
+    if attributes.params
+        - var params = attributes.params
+        - mod = params.mod?mod + ' ' + params.mod:mod
 
     body(class=`page${mod}`)
         block

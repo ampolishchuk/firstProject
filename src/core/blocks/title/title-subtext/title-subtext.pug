@@ -1,0 +1,10 @@
+mixin title-subtext()
+    if attributes.params
+        - var mod = ''
+        - var params = attributes.params
+        - mod = params.mod?mod + ' ' + params.mod:mod
+        - var tag = params.tag?params.tag:'span'
+        - var value = params.value?params.value:''
+
+        #{tag}(class=`${tag} title-subtext${mod}`)
+            | #{value} 

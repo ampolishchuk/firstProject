@@ -1,15 +1,21 @@
 include form-dropdown-body/form-dropdown-body
 
 mixin form-dropdown()
-    - var mod = attributes.mod?' ' + attributes.mod:''
-    - var title = attributes.title?attributes.title:{}    
-    - var input = attributes.input?attributes.input:{}
-    - var button = attributes.button?attributes.button:{}
-    - var body = attributes.body?attributes.body:{}    
-    - button.mod = 'button_dropdown' + (button.mod?' ' + button.mod:'')
+    - var mod = ''
+    if attributes.params
+        - var params = attributes.params
+        - mod = params.mod?mod+ ' ' + params.mod:mod
+        - var label = params.label?params.label:{}
+        - var title = params.title?params.title:{}    
+        - var input = params.input?params.input:{}
+        - var button = params.button?params.button:{}
+        - var body = params.body?params.body:{}      
+        - label.mod = 'form-label form-label_dropdown' + (title.label?' ' + title.label:'')   
+        - title.mod = 'form-title form-title_dropdown' + (title.mod?' ' + title.mod:'')
+        - input.mod = 'form-input form-input_dropdown' + (input.mod?' ' + input.mod:'')
+        - button.mod = 'form-button form-button_dropdown' + (button.mod?' ' + button.mod:'')        
 
-    
-    div(class=`form-dropdown${mod}`)
-        +form-input(title=title, input=input, button=button)
-        +form-dropdown-body(mod=body.mod, js=body.js)
-            block
+    +label(params=label)      
+        +title(params=title)
+        +input(params=input)    
+        +button(params=button)

@@ -1,0 +1,7 @@
+=form-label_input($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-label_input#{$mixinClass}
+        position: relative
+        @content

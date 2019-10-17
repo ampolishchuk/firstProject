@@ -1,0 +1,13 @@
+@import 'form-title_input'
+@import 'form-title_dropdown'
+@import 'form-title_checkbox'
+    
+=form-title($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-title#{$mixinClass}
+        +form-title_input
+        +form-title_dropdown
+        +form-title_checkbox
+        @content

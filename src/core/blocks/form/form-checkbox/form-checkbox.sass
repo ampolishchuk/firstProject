@@ -1,24 +1,7 @@
-@import 'form-checkbox_input'
-    
 =form-checkbox($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.form-checkbox#{$mixinClass}
-        &::before
-            font-family: 'Material Icons'
-            content: '\e5ca'
-            display: inline-block
-            width: 20px
-            height: 20px
-            border: 1px solid $color_dark25
-            border-radius: 4px
-            line-height: 20px
-            text-align: center
-            font-weight: bold
-        +input()
-        
-        >.input:checked            
-            display: inline-block
-            
+    .form-checkbox#{$mixinClass}
+        display: flex         
         @content

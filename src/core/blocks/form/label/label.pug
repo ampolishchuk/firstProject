@@ -1,0 +1,8 @@
+mixin label()
+    - var mod = ''
+    if attributes.params
+        - var params = attributes.params
+        - mod = params.mod?mod + ' ' + params.mod:mod
+
+    label(class=`label${mod}`)
+        block

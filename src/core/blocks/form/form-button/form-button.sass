@@ -1,0 +1,15 @@
+@import 'form-button_checkbox'
+@import 'form-button_dropdown'
+@import 'form-button_confirm'
+
+=form-button($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-button#{$mixinClass}
+        cursor: pointer
+        outline-width: 0
+        +form-button_checkbox
+        +form-button_dropdown
+        +form-button_confirm
+        @content

@@ -1,0 +1,11 @@
+@import 'theme-formElements-container_wide'
+    
+=theme-formElements-container($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .theme-formElements-container#{$mixinClass}
+        width: 266px
+        margin-bottom: 40px
+        +theme-formElements-container_wide
+        @content

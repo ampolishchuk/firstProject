@@ -1,0 +1,17 @@
+=form-button_confirm($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-button_confirm#{$mixinClass}
+        &::after
+            font-family: 'Material Icons'
+            content: $icon_confirm
+            font-size: 24px
+            color: $color_purple
+        position: absolute
+        right: 0
+        padding: 0 10px
+        height: 44px
+        color: $color_dark50
+        outline-width: 0
+        @content

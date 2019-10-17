@@ -1,0 +1,7 @@
+=form-title_dropdown($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-title_dropdown#{$mixinClass}
+        margin-bottom: 5px
+        @content

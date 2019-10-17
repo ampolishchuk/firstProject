@@ -1,0 +1,10 @@
+=form-container_checkboxes($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-container_checkboxes#{$mixinClass}
+        display: grid
+        grid-template-columns: 1fr
+        grid-gap: 8px
+        margin-top: 15px
+        @content

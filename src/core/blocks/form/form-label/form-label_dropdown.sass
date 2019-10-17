@@ -1,0 +1,7 @@
+=form-label_dropdown($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-label_dropdown#{$mixinClass}
+        position: relative
+        @content

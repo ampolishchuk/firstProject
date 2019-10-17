@@ -1,11 +1,15 @@
 include title-text/title-text
+include title-subtext/title-subtext
 
 mixin title()
-    - var mod = attributes.mod?' ' + attributes.mod:''
-    - var text = attributes.text?attributes.text:{}
-    - var subtext = attributes.subtext?attributes.subtext:{}
-    - subtext.mod = 'title-text_subtext' + (subtext.mod?' ' + subtext.mod:'')
+    if attributes.params
+        - var mod = ''
+        - var params = attributes.params
+        - mod = params.mod?mod + ' ' + params.mod:mod
+        - var text = params.text?params.text:{}
+        - var subtext = params.subtext?params.subtext:{}
+        - subtext.mod = 'title-text_subtext' + (subtext.mod?' ' + subtext.mod:'')        
 
-    span(class=`title${mod}`)
-        +title-text(mod=text.mod, tag=text.tag, val=text.val)
-        +title-text(mod=subtext.mod, tag=subtext.tag, val=subtext.val)
+        span(class=`title${mod}`)
+            +title-text(params=text)
+            +title-subtext(params=subtext)

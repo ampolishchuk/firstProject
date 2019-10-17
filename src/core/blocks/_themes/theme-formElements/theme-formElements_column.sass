@@ -1,0 +1,9 @@
+=theme-formElements_column($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.theme-formElements_column#{$mixinClass}
+        display: flex
+        flex-direction: column
+        padding: 143px 0
+        @content

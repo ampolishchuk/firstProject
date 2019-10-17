@@ -4,10 +4,6 @@
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.form-dropdown#{$mixinClass}
-        display: flex
-        flex-wrap: wrap
-        width: 100%
-        +form-input()
+    .form-dropdown#{$mixinClass}
         +form-dropdown-body
         @content

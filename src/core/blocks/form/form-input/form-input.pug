@@ -1,14 +1,18 @@
 mixin form-input()
-    - var mod = attributes.mod?' ' + attributes.mod:''
-    - var title = attributes.title?attributes.title:false
-    - var input = attributes.input?attributes.input:{} 
-    - var button = attributes.button?attributes.button:false
-    - button.mod = 'button_input' + (button.mod?' ' + button.mod:'')
-    
+    - var mod = ''
+    if attributes.params
+        - var params = attributes.params
+        - mod = params.mod?mod+ ' ' + params.mod:mod
+        - var label = params.label?params.label:{}
+        - var title = params.title?params.title:{}
+        - var input = params.input?params.input:{} 
+        - var button = params.button?params.button:{}
+        - label.mod = 'form-label form-label_input' + (title.label?' ' + title.label:'')   
+        - title.mod = 'form-title form-title_input' + (title.mod?' ' + title.mod:'')  
+        - input.mod = 'form-input' + (input.mod?' ' + input.mod:'')  
+        - button.mod = 'form-button' + (button.mod?' ' + button.mod:'')    
 
-    label(class=`form-input${mod}`)
-        if title            
-            +title(mod=title.mod, text=title.text, subtext=title.subtext)
-        +input(mod=input.mod, js=input.js attr=input.attr)
-        if button            
-            +button(mod=button.mod, js=button.js, text=button.text)
+    +label(params=label)
+        +title(params=title)
+        +input(params=input)    
+        +button(params=button)

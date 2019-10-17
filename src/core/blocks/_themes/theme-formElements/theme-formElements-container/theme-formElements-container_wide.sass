@@ -1,0 +1,7 @@
+=theme-formElements-container_wide($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.theme-formElements-container_wide#{$mixinClass}
+        width: 320px
+        @content

@@ -1,0 +1,11 @@
+@import 'form-container_inputs'
+@import 'form-container_checkboxes'
+    
+=form-container($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-container#{$mixinClass}
+        +form-container_inputs
+        +form-container_checkboxes
+        @content

@@ -1,7 +1,10 @@
 mixin title-text()
-    - var mod = attributes.mod?' ' + attributes.mod:''
-    - var tag = attributes.tag?attributes.tag:'span'
-    - var val = attributes.val?attributes.val:''
+    if attributes.params
+        - var mod = ''
+        - var params = attributes.params
+        - mod = params.mod?mod + ' ' + params.mod:mod
+        - var tag = params.tag?params.tag:'span'
+        - var value = params.value?params.value:''
 
-    #{tag}(class=`${tag} title-text${mod}`)
-        | #{val} 
+        #{tag}(class=`${tag} title-text${mod}`)
+            | #{value} 

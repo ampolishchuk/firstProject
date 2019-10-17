@@ -8,10 +8,10 @@ block css
 block title 
     | index.html
 block body 
-    +page(mod='page_uikit')
+    +page(params={mod:'page_uikit'})
         +panel()
-            +container(mod='container_colorsTypes')
-                +column(mod='column_colorsTypes')
+            +content(params={mod:'theme-colorsTypes_content'})
+                +column(params={mod:'theme-colorsTypes_column'})
                     +color(elem={example:{mod:'color-example_dark'},name:{block:'Dark Shade 100%'}, hex:{block:'#1F2041'}})
                     +color(elem={example:{mod:'color-example_dark75'},name:{block:'Dark Shade 75%'}, hex:{block:'#1F2041'}})
                     +color(elem={example:{mod:'color-example_dark50'},name:{block:'Dark Shade 50%'}, hex:{block:'#1F2041'}})
@@ -19,71 +19,72 @@ block body
                     +color(elem={example:{mod:'color-example_dark5'},name:{block:'Dark Shade 5%'}, hex:{block:'#1F2041'}})
                     +color(elem={example:{mod:'color-example_purple'},name:{block:'Purple'}, hex:{block:'#BC9CFF'}})
                     +color(elem={example:{mod:'color-example_green'},name:{block:'Green'}, hex:{block:'#6FCF97'}})
-                +column(mod='column_colorsTypes')
+                +column(params={mod:'theme-colorsTypes_column'})
                     +type(mod='type_h1',elem={tag:{block:'H1'},example:{block:'This one is the sub-section or widget title'}})
                     +type(mod='type_h2',elem={tag:{block:'H2'},example:{block:'Next one is the item title inside widgets'}})
                     +type(mod='type_h3',elem={tag:{block:'H3'},example:{block:'This is a label or CTA text'}})
                     +type(elem={tag:{block:'Body'},example:{block:'This is the body text which is used for most of the design, like paragraphs, lists, etc.'}})
         +panel()
-            +container(mod='container_formElements')
-                +column(mod='column_formElements')
-                    +element(mod='element_wide')
+            +content(params={mod:'theme-formElements_content'})
+                +column(params={mod:'theme-formElements_column'})
+                    +container(params={mod:'theme-formElements-container theme-formElements-container_wide'})
                         +form()
-                            +form-input(
-                                title={
-                                    text: {tag:'h3', val:'Text field'},
-                                    subtext: {tag:'h3', val:'Default'}
-                                },
-                                input={
-                                    attr:{
-                                        type:'text',
-                                        placeholder: 'Email'}
-                                }
-                            )
-                            +form-input(
-                                title={
-                                    text: {tag:'h3', val:'Text field'},
-                                    subtext: {tag:'h3', val:'Hover / Focus'}
-                                },
-                                input={
-                                    mod:'input_hovered',
-                                    attr:{
-                                        type:'text',
-                                        value:'This is pretty awesome'
-                                    }
-                                }
-                            )
-                            +form-dropdown(
-                                title={
-                                    text: {tag:'h3', val:'Dropdown'},
-                                    subtext: {tag:'h3', val:'Default'}
-                                },
-                                input={
-                                    attr:{
-                                        type:'text',
-                                        value:'Сколько гостей',
-                                    }
-                                }
-                            )
-                            +form-input(
-                                title={
-                                    text: {tag:'h3', val:'Masked text field'},
-                                    subtext: {tag:'h3', val:'Default'}
-                                },
-                                input={
-                                    attr:{
-                                        type:'text',
-                                        placeholder:'ДД.ММ.ГГГГ'
-                                    },
-                                    js:"js-input_maskDate"
-                                }
-                            )
-                    +element(mod='element_wide')
-                        +form()
-                            +form-selectDate(
-                                arrival={
+                            +container(params={mod:'form-container form-container_inputs'})
+                                +form-input(params={
                                     title:{
-                                        text: {tag:'h3', val:'date Dropdown'}
+                                        text: {tag:'h3', value:'Text field'},
+                                        subtext: {tag:'h3', value:'Default'}
+                                    },
+                                    input:{
+                                        attr:{
+                                            type:'text',
+                                            placeholder: 'Email'}
+                                    }
+                                })
+                                +form-input(params={
+                                    title:{
+                                        text: {tag:'h3', value:'Text field'},
+                                        subtext: {tag:'h3', value:'Hover / Focus'}
+                                    },
+                                    input:{
+                                        mod:'input_hovered',
+                                        attr:{
+                                            type:'text',
+                                            value:'This is pretty awesome'
+                                        }
+                                    }
+                                })
+                                +form-dropdown(params={
+                                    title:{
+                                        text: {tag:'h3', value:'Dropdown'},
+                                        subtext: {tag:'h3', value:'Default'}
+                                    },
+                                    input:{
+                                        attr:{
+                                            type:'text',
+                                            value:'Сколько гостей',
+                                        }
+                                    }
+                                })
+                                +form-input(params={
+                                    title:{
+                                        text: {tag:'h3', value:'Masked text field'},
+                                        subtext: {tag:'h3', value:'Default'}
+                                    },
+                                    input:{
+                                        attr:{
+                                            type:'text',
+                                            placeholder:'ДД.ММ.ГГГГ'
+                                        },
+                                        js:"js-input_maskDate"
+                                    }
+                                })
+                    +container(params={mod:'theme-formElements-container theme-formElements-container_wide'})
+                        +form()
+                            +form-selectDate(params={
+                                arrival:{
+                                    title:{
+                                        text: {tag:'h3', value:'date Dropdown'}
                                     },
                                     input:{
                                         attr:{
@@ -93,9 +94,9 @@ block body
                                         js:"js-input_maskDate"
                                     }
                                 },
-                                leave={
+                                leave:{
                                     title:{
-                                        text: {tag:'h3', val:'date Dropdown'}
+                                        text: {tag:'h3', value:'date Dropdown'}
                                     },
                                     input:{
                                         attr:{
@@ -106,99 +107,91 @@ block body
                                         js:"js-input_maskDate"
                                     }
                                 }
-                            )
-                    +element()
+                            })
+                    +container(params={mod:'theme-formElements-container'})
                         +form()
-                            +form-dropdown(
-                                title={
-                                    text: {tag:'h3', val:'filter date dropdown'}
+                            +form-dropdown(params={
+                                title:{
+                                    text: {tag:'h3', value:'filter date dropdown'}
                                 },
-                                input={
+                                input:{
                                     attr:{
-                                        type:'text',
                                         value:'19 авг - 23 авг',
                                     }
                                 }
-                            )
-                    +element()
+                            })
+                    +container(params={mod:'theme-formElements-container'})
                         +form()
-                            +form-input(
-                                title={
-                                    text: {tag:'h3', val:'subscription text field'}
+                            +form-input(params={
+                                title:{
+                                    text: {tag:'h3', value:'subscription text field'}
                                 },
-                                input={
+                                input:{
                                     attr:{
                                         type:'text',
                                         placeholder:'Email'
                                     }
                                 },
-                                button={
-                                    mod:'button_confirm'
+                                button:{
+                                    mod:'form-button form-button_confirm'
                                 }
-                            )
-                +column(mod='column_formElements column_formElements_center')
-                    +element()
-                        +title(text='Checkbox buttons', type='h3')
+                            })
+                +column(params={mod:'theme-formElements_column'})
+                    +container(params={mod:'theme-formElements-container'})
                         +form()
-                            +form-checkbox(text='Можно курить')
-                            +form-checkbox(text='Можно с питомцами')
-                            +form-checkbox(text='Можно пригласить гостей (до 10 человек)')
-                +column(mod='column_formElements column_formElements_right')
-                    +element(mod='element_wide')
-                        +form()
-                            +form-input(
-                                title={
-                                    text:'Text field', 
-                                    subtitle:{text:'Default'}
-                                },
-                                input={
-                                    attr:{
-                                        type:'text',
-                                        placeholder: 'Email'}
-                                }
-                            )
-                            +form-input(
-                                title={
-                                    text:'Text field', 
-                                    subtitle:{text:'Hover/Focused'}
-                                },
-                                input={
-                                    mod:'input_hovered',
-                                    attr:{
-                                        type:'text',
-                                        value:'This is pretty awesome'
+                            +title(params={
+                                mod:'form-title form-title_input',
+                                text:{tag:'h3',value:'Checkbox buttons'}
+                            })
+                            +container(params={mod:'form-container form-container_checkboxes'})
+                                +form-checkbox(params={
+                                    title:{
+                                        text:{
+                                            value:'Можно курить'
+                                        }
                                     }
-                                }
-                            )
-                            +form-dropdown(
-                                title={
-                                    text:'Dropdown', 
-                                    subtitle:{text:'Default'}
-                                },
-                                input={
-                                    attr:{
-                                        type:'text',
-                                        value:'Сколько гостей',
-                                    }
-                                }
-                            )
-                            +form-input(
-                                title={
-                                    text:'Masked text field', 
-                                    subtitle:{text:'Default'}
-                                },
-                                input={
-                                    attr:{
-                                        type:'text',
-                                        placeholder:'ДД.ММ.ГГГГ'
+                                })
+                                +form-checkbox(params={
+                                    title:{
+                                        text:{
+                                            value:'Можно с питомцами'
+                                        }
                                     },
-                                    js:"js-input_maskDate"
-                                }
-                            )
+                                    input:{attr:{checked:''}}
+                                })
+                                +form-checkbox(params={
+                                    title:{
+                                        text:{
+                                            value:'Можно пригласить гостей (до 10 человек)'
+                                        }
+                                    },
+                                    input:{attr:{checked:''}} 
+                                })
+                    +container(params={mod:'theme-formElements-container'})
+                        +form()
+                            +title(params={
+                                mod:'form-title form-title_input',
+                                text:{tag:'h3',value:'Radio buttons'}
+                            })
+                            +container(params={mod:'form-container form-container_checkboxes'})
+                +column(params={mod:'theme-formElements_column'})
+                    +container(params={mod:'theme-formElements-container'})
+                                +form()
+                                    +form-input(params={
+                                        title:{
+                                            text: {tag:'h3', value:'subscription text field'}
+                                        },
+                                        input:{
+                                            attr:{
+                                                type:'text',
+                                                placeholder:'Email'
+                                            }
+                                        },
+                                        button:{
+                                            mod:'form-button form-button_confirm'
+                                        }
+                                    })
         +panel()
-            +container(mod='container_cards')
-        +panel()
-            +container(mod='container_headersFooters')
     +js('vendors.js')
     +js('main.js')  
     +js('uikit.js')

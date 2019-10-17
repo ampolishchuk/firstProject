@@ -1,0 +1,9 @@
+mixin input()
+    if attributes.params
+        - var params = attributes.params
+        - var mod = params.mod?' ' + params.mod:''
+        - var js = params.js?' ' + params.js:''
+        - var attr = params.attr?params.attr:{}
+        - attr.type = attr.type?attr.type:'text'
+
+    input(class=`input${mod}${js}`)&attributes(attr)

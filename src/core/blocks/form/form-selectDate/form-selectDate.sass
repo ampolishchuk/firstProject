@@ -1,14 +1,9 @@
-@import 'selectDate-arrival/selectDate-arrival'
-@import 'selectDate-leave/selectDate-leave'
-    
 =form-selectDate($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.form-selectDate#{$mixinClass}
-        width: 100%
+    .form-selectDate#{$mixinClass}
         display: grid
         grid-template-columns: 1fr 1fr
         grid-gap: 20px
-        +form-dropdown()
         @content

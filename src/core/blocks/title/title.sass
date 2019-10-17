@@ -1,13 +1,14 @@
 @import 'title-text/title-text'
+@import 'title-subtext/title-subtext'
     
 =title($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.title#{$mixinClass}
+    .title#{$mixinClass}
         display: flex
         justify-content: space-between
         width: 100%
-        margin-bottom: 5px
         +title-text()
+        +title-subtext()
         @content

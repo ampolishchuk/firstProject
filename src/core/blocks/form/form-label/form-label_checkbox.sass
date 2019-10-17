@@ -1,0 +1,8 @@
+=form-label_checkbox($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-label_checkbox#{$mixinClass}
+        display: flex
+        cursor: pointer
+        @content

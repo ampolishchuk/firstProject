@@ -1,7 +1,0 @@
-@mixin type_h1($mixinClass:'')
-    @if $mixinClass != ''
-        $mixinClass: '.#{$mixinClass}'
-
-    &.type_h1#{$mixinClass}
-        @extend .h1
-        @content

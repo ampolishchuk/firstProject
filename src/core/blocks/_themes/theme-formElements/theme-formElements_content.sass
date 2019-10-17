@@ -1,0 +1,10 @@
+=theme-formElements_content($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.theme-formElements_content#{$mixinClass}
+        width: 1358px
+        display: flex
+        justify-content: space-evenly
+        height: 1855px
+        @content

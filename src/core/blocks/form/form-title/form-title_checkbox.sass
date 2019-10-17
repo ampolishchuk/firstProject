@@ -1,0 +1,8 @@
+=form-title_checkbox($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-title_checkbox#{$mixinClass}
+        padding-left: 10px
+        line-height: 20px
+        @content

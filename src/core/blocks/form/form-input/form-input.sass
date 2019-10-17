@@ -1,11 +1,9 @@
+@import 'form-input_checkbox'
+    
 =form-input($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.form-input#{$mixinClass}
-        position: relative
-        width: 100%
-        +title()
-        +input()
-        +button()
+    .form-input#{$mixinClass}
+        +form-input_checkbox
         @content

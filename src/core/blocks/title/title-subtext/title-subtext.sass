@@ -1,0 +1,8 @@
+=title-subtext($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .title-subtext#{$mixinClass}
+        color: $color_dark50
+        font-weight: normal
+        @content

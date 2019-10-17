@@ -1,0 +1,8 @@
+mixin content()
+    - var mod = ''
+    if attributes.params
+        - var params = attributes.params
+        - mod = params.mod?mod + ' ' + params.mod:mod
+
+    section(class=`content${mod}`)
+        block

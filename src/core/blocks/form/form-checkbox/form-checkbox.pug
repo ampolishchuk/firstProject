@@ -1,11 +1,20 @@
 mixin form-checkbox()
-    - var mod = attributes.mod?' ' + attributes.mod:''
-    - var text = attributes.text?attributes.text:''
-    - var input = attributes.input?attributes.input:{}
-    - input.mod = 'input_checkbox' + (input.mod?' ' + input.mod:'')
-    - input.attr = input.attr?input.attr:{}
-    - input.attr.type = input.attr.type?input.attr.type:'checkbox'
-
-    label(class=`form-checkbox${mod}`)
-        +input(mod=input.mod, js=input.js attr=input.attr)          
-        | #{text}
+    - var mod = ''
+    if attributes.params
+        - var params = attributes.params
+        - mod = params.mod?mod+' ' + params.mod:mod
+        - var label = params.label?params.label:{}
+        - var title = params.title?params.title:{}
+        - var input = params.input?params.input:{}
+        - var button = params.button?params.button:{}
+        - label.mod = 'form-label form-label_checkbox' + (title.label?' ' + title.label:'')   
+        - title.mod = 'form-title form-title_checkbox' + (title.mod?' ' + title.mod:'')
+        - input.mod = 'form-input form-input_checkbox' + (input.mod?' ' + input.mod:'')
+        - button.mod = 'form-button form-button_checkbox' + (button.mod?' ' + button.mod:'') 
+        - input.attr = input.attr?input.attr:{}
+        - input.attr.type = input.attr.type?input.attr.type:'checkbox'
+        
+    +label(params=label)
+        +input(params=input)    
+        +button(params=button)      
+        +title(params=title)

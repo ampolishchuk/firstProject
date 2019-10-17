@@ -1,0 +1,15 @@
+=form-button_dropdown($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-button_dropdown#{$mixinClass}
+        &::after
+            font-family: 'Material Icons'
+            content: $icon_dropdown
+            font-size: 24px
+        position: absolute
+        right: 0
+        padding: 0 10px
+        height: 44px
+        color: $color_dark50
+        @content

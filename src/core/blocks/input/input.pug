@@ -1,6 +1,0 @@
-mixin input()
-    - var mod = attributes.mod?' ' + attributes.mod:''
-    - var js = attributes.js?' ' + attributes.js:''
-    - var attr = attributes.attr?attributes.attr:{}
-
-    input(class=`input${mod}${js}`)&attributes(attr)

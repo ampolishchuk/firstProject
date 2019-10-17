@@ -1,16 +1,6 @@
-@import 'container_colorsTypes'
-@import 'container_formElements'
-@import 'container_cards'
-@import 'container_headersFooters'
-    
 =container($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    >.container#{$mixinClass}
-        width: $size_containerWidth
-        +container_colorsTypes()
-        +container_formElements()
-        +container_cards()        
-        +container_headersFooters()
+    .container#{$mixinClass}
         @content

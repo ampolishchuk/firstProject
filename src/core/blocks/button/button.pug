@@ -1,7 +1,10 @@
 mixin button()    
-    - var mod = attributes.mod?' ' + attributes.mod:''
-    - var js = attributes.js?' ' + attributes.js:''
-    - var text = attributes.text?attributes.text:''
+    if attributes.params
+        - var mod = ''
+        - var params = attributes.params
+        - mod = params.mod?mod + ' ' + params.mod:mod
+        - var js = params.js?' ' + params.js:''
+        - var value = params.value?params.value:''
 
-    button(class=`button${mod}${js}`)
-        | #{text}
+        button(class=`button${mod}${js}`, disabled)
+            | #{value}
