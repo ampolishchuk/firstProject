@@ -1,6 +1,7 @@
 @import 'form-label_input'
 @import 'form-label_dropdown'
 @import 'form-label_checkbox'
+@import 'form-label_radio'
     
 =form-label($mixinClass:'')
     @if $mixinClass != ''
@@ -10,4 +11,5 @@
         +form-label_input
         +form-label_dropdown
         +form-label_checkbox
+        +form-label_radio
         @content

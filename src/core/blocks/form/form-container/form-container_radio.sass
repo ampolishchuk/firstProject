@@ -1,11 +1,11 @@
-=form-container_checkboxes($mixinClass:'')
+=form-container_radio($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    &.form-container_checkboxes#{$mixinClass}
+    &.form-container_radio#{$mixinClass}
         display: grid
-        grid-template-columns: 1fr
-        grid-gap: 8px
+        grid-template-columns: 1fr 1fr
+        grid-gap: 5px
         margin-top: 15px
         width: 230px
         @content

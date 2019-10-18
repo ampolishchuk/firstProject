@@ -1,0 +1,6 @@
+=form-radio($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-radio#{$mixinClass}
+        @content

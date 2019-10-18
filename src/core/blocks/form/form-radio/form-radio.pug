@@ -1,0 +1,20 @@
+mixin form-radio()
+    - var mod = ''
+    if attributes.params
+        - var params = attributes.params
+        - mod = params.mod?mod+' ' + params.mod:mod
+        - var label = params.label?params.label:{}
+        - var title = params.title?params.title:{}
+        - var input = params.input?params.input:{}
+        - var button = params.button?params.button:{}
+        - label.mod = 'form-label form-label_radio' + (title.label?' ' + title.label:'')   
+        - title.mod = 'form-title form-title_radio' + (title.mod?' ' + title.mod:'')
+        - input.mod = 'form-input form-input_radio' + (input.mod?' ' + input.mod:'')
+        - button.mod = 'form-button form-button_radio' + (button.mod?' ' + button.mod:'') 
+        - input.attr = input.attr?input.attr:{}
+        - input.attr.type = input.attr.type?input.attr.type:'radio'
+        
+    +label(params=label)
+        +input(params=input)            
+        +title(params=title)
+            +button(params=button)  

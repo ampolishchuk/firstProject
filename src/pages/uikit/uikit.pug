@@ -173,7 +173,23 @@ block body
                                 mod:'form-title form-title_input',
                                 text:{tag:'h3',value:'Radio buttons'}
                             })
-                            +container(params={mod:'form-container form-container_checkboxes'})
+                            +container(params={mod:'form-container form-container_radio'})
+                                +form-radio(params={
+                                    title:{
+                                        text:{
+                                            value:'Мужчина'
+                                        }
+                                    },
+                                    input:{attr:{name:'testRadio', checked:''}} 
+                                })
+                                +form-radio(params={
+                                    title:{
+                                        text:{
+                                            value:'Женщина'
+                                        }
+                                    },
+                                    input:{attr:{name:'testRadio'}} 
+                                })
                 +column(params={mod:'theme-formElements_column'})
                     +container(params={mod:'theme-formElements-container'})
                                 +form()

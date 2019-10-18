@@ -1,0 +1,17 @@
+=form-button_radio_checked($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &:checked + .form-button_radio#{$mixinClass}
+        &::after
+            font-family: 'Material Icons'
+            content: $icon_radio
+            background: linear-gradient(180deg, $color_purple 0%, #8BA4F9 100%)
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            font-size: 14px
+            color: $color_purple
+            line-height: 19px
+            margin-left: 1px
+        border-color: $color_purple
+        @content

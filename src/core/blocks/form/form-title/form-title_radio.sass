@@ -1,0 +1,8 @@
+=form-title_radio($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-title_radio#{$mixinClass}
+        padding-left: 10px
+        line-height: 20px
+        @content
