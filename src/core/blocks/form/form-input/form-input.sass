@@ -1,5 +1,6 @@
 @import 'form-input_checkbox'
 @import 'form-input_radio'
+@import 'form-input_toggle'
     
 =form-input($mixinClass:'')
     @if $mixinClass != ''
@@ -8,4 +9,5 @@
     .form-input#{$mixinClass}
         +form-input_checkbox
         +form-input_radio
+        +form-input_toggle
         @content

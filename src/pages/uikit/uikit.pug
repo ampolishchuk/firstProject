@@ -190,6 +190,52 @@ block body
                                     },
                                     input:{attr:{name:'testRadio'}} 
                                 })
+                    +container(params={mod:'theme-formElements-container'})
+                        +form()
+                            +title(params={
+                                mod:'form-title form-title_input',
+                                text:{tag:'h3',value:'Toggle'}
+                            })
+                            +container(params={mod:'form-container form-container_toggle'})
+                                +form-toggle(params={
+                                    title:{
+                                        text:{
+                                            value:'Получать спецпредложения'
+                                        }
+                                    },
+                                    input:{attr:{name:'testRadio', checked:''}} 
+                                })
+                                +form-toggle(params={
+                                    title:{
+                                        text:{
+                                            value:'Получать спецпредложения'
+                                        }
+                                    },
+                                    input:{attr:{name:'testRadio'}} 
+                                })
+                    +container(params={mod:'theme-formElements-container'})
+                        +form()
+                            +title(params={
+                                mod:'form-title form-title_input',
+                                text:{tag:'h3',value:'like button'}
+                            })
+                            +container(params={mod:'form-container form-container_toggle'})
+                                +form-toggle(params={
+                                    title:{
+                                        text:{
+                                            value:'Получать спецпредложения'
+                                        }
+                                    },
+                                    input:{attr:{name:'testRadio', checked:''}} 
+                                })
+                                +form-toggle(params={
+                                    title:{
+                                        text:{
+                                            value:'Получать спецпредложения'
+                                        }
+                                    },
+                                    input:{attr:{name:'testRadio'}} 
+                                })
                 +column(params={mod:'theme-formElements_column'})
                     +container(params={mod:'theme-formElements-container'})
                                 +form()

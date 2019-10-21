@@ -1,8 +1,11 @@
-=form-button_radio_checked($mixinClass:'')
+=form-button_toggle_checked($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    &:checked + .form-title_radio > .form-button_radio#{$mixinClass}
+    &:checked + .form-title_toggle > .form-button_toggle#{$mixinClass}
+        flex-direction: row-reverse
+        border-color: $color_purple
+
         &::before
             font-family: 'Material Icons'
             content: $icon_radio
@@ -11,7 +14,5 @@
             -webkit-text-fill-color: transparent
             font-size: 14px
             color: $color_purple
-            line-height: 19px
-            margin-left: 1px
-        border-color: $color_purple
+            line-height: 19px   
         @content

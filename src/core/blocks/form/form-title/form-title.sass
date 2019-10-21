@@ -2,6 +2,7 @@
 @import 'form-title_dropdown'
 @import 'form-title_checkbox'
 @import 'form-title_radio'
+@import 'form-title_toggle'
     
 =form-title($mixinClass:'')
     @if $mixinClass != ''
@@ -12,4 +13,5 @@
         +form-title_dropdown
         +form-title_checkbox
         +form-title_radio
+        +form-title_toggle
         @content

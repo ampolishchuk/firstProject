@@ -2,8 +2,8 @@
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
-    &:checked + .form-button_checkbox#{$mixinClass}
-        &::after
+    &:checked + .form-title_checkbox > .form-button_checkbox#{$mixinClass}
+        &::before
             font-family: 'Material Icons'
             content: $icon_checkbox
             background: linear-gradient(45deg, #8BA4F9 0%, $color_purple 100%)
