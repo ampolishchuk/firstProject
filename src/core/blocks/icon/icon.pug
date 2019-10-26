@@ -1,11 +1,11 @@
-mixin label()
+mixin icon()
     - var params = {}
-    - params.mod = 'label'
+    - params.mod = 'material-icons icon'
     - params.value = ''
 
     if attributes.params
         +mergeObj(params, attributes.params)
-
-    label(class=params.mod)
+        
+    i(class=params.mod)
         | #{params.value}
         block

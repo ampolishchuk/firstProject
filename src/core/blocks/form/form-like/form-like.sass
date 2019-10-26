@@ -1,0 +1,15 @@
+@import 'form-like_button'
+@import 'form-like_icon'
+@import 'form-like_input'
+@import 'form-like_title'
+    
+=form-like($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-like#{$mixinClass}
+        +form-like_button
+        +form-like_icon
+        +form-like_input
+        +form-like_title
+        @content

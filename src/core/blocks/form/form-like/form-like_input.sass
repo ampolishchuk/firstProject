@@ -1,0 +1,13 @@
+=form-like_input($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-like_input#{$mixinClass}
+        display: none
+        &:checked + .form-like_title > .form-like_button 
+            border-color: $color_purple
+            color: $color_purple
+            & > .form-like_icon
+                &::before
+                    content: 'favorite'
+        @content

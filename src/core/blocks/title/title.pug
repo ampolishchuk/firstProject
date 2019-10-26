@@ -2,15 +2,15 @@ include title-text/title-text
 include title-subtext/title-subtext
 
 mixin title()
-    if attributes.params
-        - var mod = ''
-        - var params = attributes.params
-        - mod = params.mod?mod + ' ' + params.mod:mod
-        - var text = params.text?params.text:{}
-        - var subtext = params.subtext?params.subtext:{}
-        - subtext.mod = 'title-text_subtext' + (subtext.mod?' ' + subtext.mod:'')        
+    - var params = {}
+    - params.mod = 'title'
+    - params.value = ''
 
-        span(class=`title${mod}`)
-            +title-text(params=text)
-            +title-subtext(params=subtext)
-            block
+    if attributes.params
+        +mergeObj(params, attributes.params)
+
+    span(class=params.mod)
+        | #{params.value}
+        +title-text(params=params.text)
+        +title-subtext(params=params.subtext)
+        block

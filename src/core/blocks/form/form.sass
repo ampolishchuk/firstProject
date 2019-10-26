@@ -6,10 +6,13 @@
 @import 'form-dropdown/form-dropdown'
 @import 'form-selectDate/form-selectDate'
 @import 'form-checkbox/form-checkbox'
-@import 'form-radio/form-radio'
+
 @import 'form-toggle/form-toggle'
 @import 'form-container/form-container'
 @import 'form-button/form-button'
+
+@import 'form-radio/form-radio'
+@import 'form-like/form-like'
     
 =form($mixinClass:'')
     @if $mixinClass != ''
@@ -26,10 +29,12 @@
         +form-dropdown
         +form-selectDate
         +form-checkbox
-        +form-radio
         +form-toggle
         +form-container
         +form-button
+        
+        +form-radio
+        +form-like
     @content
 
     

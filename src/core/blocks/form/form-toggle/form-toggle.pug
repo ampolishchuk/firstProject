@@ -7,7 +7,7 @@ mixin form-toggle()
         - var title = params.title?params.title:{}
         - var input = params.input?params.input:{}
         - var button = params.button?params.button:{}
-        - label.mod = 'form-label' + (title.label?' ' + title.label:'')   
+        - label.mod = 'form-label' + (label.mod?' ' + label.mod:'')   
         - title.mod = 'form-title form-title_toggle' + (title.mod?' ' + title.mod:'')
         - input.mod = 'form-input form-input_toggle' + (input.mod?' ' + input.mod:'')
         - button.mod = 'form-button form-button_toggle' + (button.mod?' ' + button.mod:'') 

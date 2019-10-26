@@ -7,12 +7,13 @@ include form-selectDate/form-selectDate
 include form-checkbox/form-checkbox
 include form-radio/form-radio
 include form-toggle/form-toggle
+include form-like/form-like
 
 mixin form()
     - var mod = ''
     if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod + ' ' + params.mod:mod
+        - var form = attributes.params
+        - mod = form.mod?' ' + form.mod:''
 
     form(class=`form${mod}`)
         block

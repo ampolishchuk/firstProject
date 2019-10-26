@@ -2,6 +2,7 @@
 @import 'form-container_checkboxes'
 @import 'form-container_radio'
 @import 'form-container_toggle'
+@import 'form-container_likes'
     
 =form-container($mixinClass:'')
     @if $mixinClass != ''
@@ -12,4 +13,5 @@
         +form-container_checkboxes
         +form-container_radio
         +form-container_toggle
+        +form-container_likes
         @content

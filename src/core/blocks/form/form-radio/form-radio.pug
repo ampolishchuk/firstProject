@@ -1,20 +1,18 @@
 mixin form-radio()
-    - var mod = ''
+    - var params = {}
+    - params.container = {container:{mod:'form-radio'}}
+    - params.label = {container:{mod:'form-radio_label'}}
+    - params.input = {container:{mod:'form-radio_input',attr:{type:'radio'}}}
+    - params.title = {container:{mod:'form-radio_title'}}
+    - params.button = {container:{mod:'form-radio_button'}}
+    - params.icon = {container:{mod:'form-radio_icon'}}
+
     if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod+' ' + params.mod:mod
-        - var label = params.label?params.label:{}
-        - var title = params.title?params.title:{}
-        - var input = params.input?params.input:{}
-        - var button = params.button?params.button:{}
-        - label.mod = 'form-label form-label_radio' + (title.label?' ' + title.label:'')   
-        - title.mod = 'form-title form-title_radio' + (title.mod?' ' + title.mod:'')
-        - input.mod = 'form-input form-input_radio' + (input.mod?' ' + input.mod:'')
-        - button.mod = 'form-button form-button_radio' + (button.mod?' ' + button.mod:'') 
-        - input.attr = input.attr?input.attr:{}
-        - input.attr.type = input.attr.type?input.attr.type:'radio'
-        
-    +label(params=label)
-        +input(params=input)            
-        +title(params=title)
-            +button(params=button)  
+        +mergeObj(params, attributes.params)
+    
+    div(class=params.container.mod) 
+        +label(params=params.label)
+            +input(params=params.input)            
+            +title(params=params.title)
+                +button(params=params.button)  
+                    +icon(params=params.icon)

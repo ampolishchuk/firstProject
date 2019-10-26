@@ -1,0 +1,17 @@
+=form-radio_button($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-radio_button#{$mixinClass}
+        position: relative
+        z-index: -1
+        width: 40px
+        height: 20px
+        line-height: 18px
+        padding: 0 8px
+        border: 1px solid $color_dark25
+        border-radius: 10px
+        color: $color_dark25
+        font-size: 10px
+        text-align: right
+        @content

@@ -5,6 +5,7 @@ include ../../core/init/init
 block css
     +css("main.css")
     +css("uikit.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
 block title 
     | index.html
 block body 
@@ -31,6 +32,9 @@ block body
                         +form()
                             +container(params={mod:'form-container form-container_inputs'})
                                 +form-input(params={
+                                    label:{
+                                        mod:'hello'
+                                    },
                                     title:{
                                         text: {tag:'h3', value:'Text field'},
                                         subtext: {tag:'h3', value:'Default'}
@@ -39,7 +43,8 @@ block body
                                         attr:{
                                             type:'text',
                                             placeholder: 'Email'}
-                                    }
+                                    },
+                                    button:{hidden:true}
                                 })
                                 +form-input(params={
                                     title:{
@@ -79,7 +84,7 @@ block body
                                         js:"js-input_maskDate"
                                     }
                                 })
-                    +container(params={mod:'theme-formElements-container theme-formElements-container_wide'})
+                    //- +container(params={mod:'theme-formElements-container theme-formElements-container_wide'})
                         +form()
                             +form-selectDate(params={
                                 arrival:{
@@ -108,7 +113,7 @@ block body
                                     }
                                 }
                             })
-                    +container(params={mod:'theme-formElements-container'})
+                    //- +container(params={mod:'theme-formElements-container'})
                         +form()
                             +form-dropdown(params={
                                 title:{
@@ -120,7 +125,7 @@ block body
                                     }
                                 }
                             })
-                    +container(params={mod:'theme-formElements-container'})
+                    //- +container(params={mod:'theme-formElements-container'})
                         +form()
                             +form-input(params={
                                 title:{
@@ -136,11 +141,11 @@ block body
                                     mod:'form-button form-button_confirm'
                                 }
                             })
-                +column(params={mod:'theme-formElements_column'})
+                //- +column(params={mod:'theme-formElements_column'})
                     +container(params={mod:'theme-formElements-container'})
                         +form()
                             +title(params={
-                                mod:'form-title form-title_input',
+                                mod:'form-title',
                                 text:{tag:'h3',value:'Checkbox buttons'}
                             })
                             +container(params={mod:'form-container form-container_checkboxes'})
@@ -170,7 +175,7 @@ block body
                     +container(params={mod:'theme-formElements-container'})
                         +form()
                             +title(params={
-                                mod:'form-title form-title_input',
+                                mod:'form-title',
                                 text:{tag:'h3',value:'Radio buttons'}
                             })
                             +container(params={mod:'form-container form-container_radio'})
@@ -193,7 +198,7 @@ block body
                     +container(params={mod:'theme-formElements-container'})
                         +form()
                             +title(params={
-                                mod:'form-title form-title_input',
+                                mod:'form-title',
                                 text:{tag:'h3',value:'Toggle'}
                             })
                             +container(params={mod:'form-container form-container_toggle'})
@@ -216,27 +221,25 @@ block body
                     +container(params={mod:'theme-formElements-container'})
                         +form()
                             +title(params={
-                                mod:'form-title form-title_input',
+                                mod:'form-title form-title_likes',
                                 text:{tag:'h3',value:'like button'}
                             })
-                            +container(params={mod:'form-container form-container_toggle'})
-                                +form-toggle(params={
-                                    title:{
-                                        text:{
-                                            value:'Получать спецпредложения'
-                                        }
-                                    },
-                                    input:{attr:{name:'testRadio', checked:''}} 
+                            +container(params={mod:'form-container form-container_likes'})
+                                +form-like(params={
+                                    button:{
+                                        mod:'hello2',
+                                        value:'2'
+                                    }
                                 })
-                                +form-toggle(params={
-                                    title:{
-                                        text:{
-                                            value:'Получать спецпредложения'
-                                        }
+                                +form-like(params={
+                                    button:{
+                                        value:'12'
                                     },
-                                    input:{attr:{name:'testRadio'}} 
-                                })
-                +column(params={mod:'theme-formElements_column'})
+                                    input:{
+                                        attr:{checked:''}
+                                    }
+                                })                          
+                //- +column(params={mod:'theme-formElements_column'})
                     +container(params={mod:'theme-formElements-container'})
                                 +form()
                                     +form-input(params={

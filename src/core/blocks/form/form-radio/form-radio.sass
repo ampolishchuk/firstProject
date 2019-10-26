@@ -1,6 +1,15 @@
+@import 'form-radio_input'
+@import 'form-radio_icon'
+@import 'form-radio_title'
+@import 'form-radio_button'
+
 =form-radio($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
     .form-radio#{$mixinClass}
+        +form-radio_input
+        +form-radio_icon
+        +form-radio_title
+        +form-like_button
         @content

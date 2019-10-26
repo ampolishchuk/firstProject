@@ -1,20 +1,17 @@
 mixin form-checkbox()
-    - var mod = ''
+    - var params = {}
+    - params.container = {container:{mod:'form-checkbox'}}
+    - params.label = {container:{mod:'form-label form-label_checkbox'}}
+    - params.input = {container:{mod:'form-input form-input_checkbox',attr:{type:'checkbox'}}}
+    - params.title = {container:{mod:'form-title form-title_checkbox'}}
+    - params.button = {container:{mod:'form-button form-button_checkbox'}}
+    - params.icon = {container:{mod:'form-radio_icon'}}
+
     if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod+' ' + params.mod:mod
-        - var label = params.label?params.label:{}
-        - var title = params.title?params.title:{}
-        - var input = params.input?params.input:{}
-        - var button = params.button?params.button:{}
-        - label.mod = 'form-label form-label_checkbox' + (title.label?' ' + title.label:'')   
-        - title.mod = 'form-title form-title_checkbox' + (title.mod?' ' + title.mod:'')
-        - input.mod = 'form-input form-input_checkbox' + (input.mod?' ' + input.mod:'')
-        - button.mod = 'form-button form-button_checkbox' + (button.mod?' ' + button.mod:'') 
-        - input.attr = input.attr?input.attr:{}
-        - input.attr.type = input.attr.type?input.attr.type:'checkbox'
-        
-    +label(params=label)
-        +input(params=input)     
-        +title(params=title)    
-            +button(params=button) 
+        +mergeObj(params, attributes.params)
+
+    div(class=params.container.mod) 
+    +label(params=params.label)
+        +input(params=params.input)     
+        +title(params=params.title)    
+            +button(params=params.button) 

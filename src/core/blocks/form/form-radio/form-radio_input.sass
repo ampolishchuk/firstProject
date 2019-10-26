@@ -1,0 +1,13 @@
+=form-radio_input($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-radio_input#{$mixinClass}
+        display: none
+        &:checked + .form-radio_title > .form-radio_title 
+            border-color: $color_purple
+            color: $color_purple
+            & > .form-radio_icon
+                &::before
+                    content: 'favorite'         
+        @content

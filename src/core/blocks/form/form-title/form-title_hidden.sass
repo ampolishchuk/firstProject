@@ -1,0 +1,7 @@
+=form-title_hidden($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-title_hidden#{$mixinClass}
+        display: none
+        @content

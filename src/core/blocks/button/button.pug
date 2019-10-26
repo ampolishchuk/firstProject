@@ -1,10 +1,12 @@
 mixin button()    
-    if attributes.params
-        - var mod = ''
-        - var params = attributes.params
-        - mod = params.mod?mod + ' ' + params.mod:mod
-        - var js = params.js?' ' + params.js:''
-        - var value = params.value?params.value:''
+    - var params = {}
+    - params.mod = 'button'
+    - params.js = ''
+    - params.value = ''
 
-        button(class=`button${mod}${js}`, disabled)
-            | #{value}
+    if attributes.params
+        +mergeObj(params, attributes.params)
+
+    button(class=params.mod+' '+params.js, disabled)
+        | #{params.value}
+        block

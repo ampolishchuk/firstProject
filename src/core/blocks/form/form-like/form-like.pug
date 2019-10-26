@@ -1,0 +1,18 @@
+mixin form-like()
+    - var params = {}
+    - params.container = {container:{mod:'form-like'}}
+    - params.label = {container:{mod:'form-like_label'}}
+    - params.input = {container:{mod:'form-like_input',attr:{type:'checkbox'}}}
+    - params.title = {container:{mod:'form-like_title'}}
+    - params.button = {container:{mod:'form-like_button', value:'0'}}
+    - params.icon = {container:{mod:'form-like_icon'}}
+
+    if attributes.params
+        +mergeObj(params, attributes.params)
+
+    div(class=params.container.mod)    
+        +label(params=params.label)  
+            +input(params=params.input) 
+            +title(params=params.title)   
+                +button(params=params.button)
+                    +icon(params=params.icon)            

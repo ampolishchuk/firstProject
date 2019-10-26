@@ -1,10 +1,12 @@
 mixin title-subtext()
-    if attributes.params
-        - var mod = ''
-        - var params = attributes.params
-        - mod = params.mod?mod + ' ' + params.mod:mod
-        - var tag = params.tag?params.tag:'span'
-        - var value = params.value?params.value:''
+    - var params = {}
+    - params.mod = 'title-subtext'
+    - params.value = ''
+    - params.tag = 'span'
 
-        #{tag}(class=`${tag} title-subtext${mod}`)
-            | #{value} 
+    if attributes.params
+        +mergeObj(params, attributes.params)
+
+    #{params.tag}(class=params.tag+' '+params.mod)
+        | #{params.value} 
+        block

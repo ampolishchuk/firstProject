@@ -1,18 +1,19 @@
 mixin form-input()
-    - var mod = ''
-    if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod+ ' ' + params.mod:mod
-        - var label = params.label?params.label:{}
-        - var title = params.title?params.title:{}
-        - var input = params.input?params.input:{} 
-        - var button = params.button?params.button:{}
-        - label.mod = 'form-label form-label_input' + (title.label?' ' + title.label:'')   
-        - title.mod = 'form-title form-title_input' + (title.mod?' ' + title.mod:'')  
-        - input.mod = 'form-input' + (input.mod?' ' + input.mod:'')  
-        - button.mod = 'form-button' + (button.mod?' ' + button.mod:'')    
+    - var params = {}
+    - params.mod = 'form-input'
+    - params.label = {mod:'form-input_label'}
+    - params.input = {mod:'form-input_input'}
+    - params.title = {mod:'form-input_title'}
+    - params.button = {mod:'form-input_button'}
+    - params.icon = {mod:'form-input_icon'}
 
-    +label(params=label)
-        +title(params=title)
-        +input(params=input)    
-        +button(params=button)
+    if attributes.params
+        +mergeObj(params, attributes.params)
+
+    div(class=params.mod) 
+        +label(params=params.label)
+            +title(params=params.title)
+            +input(params=params.input)
+            - if(!params.button.hidden)
+                +button(params=params.button)
+                    +icon(params=params.icon)

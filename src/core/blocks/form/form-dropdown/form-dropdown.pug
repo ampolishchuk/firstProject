@@ -1,21 +1,20 @@
 include form-dropdown-body/form-dropdown-body
 
 mixin form-dropdown()
-    - var mod = ''
-    if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod+ ' ' + params.mod:mod
-        - var label = params.label?params.label:{}
-        - var title = params.title?params.title:{}    
-        - var input = params.input?params.input:{}
-        - var button = params.button?params.button:{}
-        - var body = params.body?params.body:{}      
-        - label.mod = 'form-label form-label_dropdown' + (title.label?' ' + title.label:'')   
-        - title.mod = 'form-title form-title_dropdown' + (title.mod?' ' + title.mod:'')
-        - input.mod = 'form-input form-input_dropdown' + (input.mod?' ' + input.mod:'')
-        - button.mod = 'form-button form-button_dropdown' + (button.mod?' ' + button.mod:'')        
+    - var params = {}
+    - params.mod = 'form-input'
+    - params.label = {mod:'form-dropdown_label'}
+    - params.input = {mod:'form-dropdown_input'}
+    - params.title = {mod:'form-dropdown_title'}
+    - params.button = {mod:'form-dropdown_button'}
+    - params.icon = {mod:'form-dropdown_icon'}
 
-    +label(params=label)      
-        +title(params=title)
-        +input(params=input)    
-        +button(params=button)
+    if attributes.params
+        +mergeObj(params, attributes.params)    
+
+    div(class=params.mod) 
+        +label(params=params.label)      
+            +title(params=params.title)
+            +input(params=params.input)    
+            +button(params=params.button)
+                +icon(params=params.icon)
