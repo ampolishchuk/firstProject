@@ -1,4 +1,4 @@
-import * as b from '../../core/init/init'
+import * as blocks from '../../core/init/init'
 import './uikit.sass';
 
-b.page().input()
+blocks.page().form()

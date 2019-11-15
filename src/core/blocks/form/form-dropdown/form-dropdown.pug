@@ -1,13 +1,10 @@
-include form-dropdown-body/form-dropdown-body
-
 mixin form-dropdown()
     - var params = {}
-    - params.mod = 'form-input'
-    - params.label = {mod:'form-dropdown_label'}
-    - params.input = {mod:'form-dropdown_input'}
-    - params.title = {mod:'form-dropdown_title'}
-    - params.button = {mod:'form-dropdown_button'}
-    - params.icon = {mod:'form-dropdown_icon'}
+    - params.mod = 'form-dropdown'
+    - params.label = {mod: params.mod + '_label'}
+    - params.title = {mod: params.mod + '_title'}
+    - params.input = {mod: params.mod + '_input'}
+    - params.button = {mod: params.mod + '_button'}
 
     if attributes.params
         +mergeObj(params, attributes.params)    
@@ -17,4 +14,3 @@ mixin form-dropdown()
             +title(params=params.title)
             +input(params=params.input)    
             +button(params=params.button)
-                +icon(params=params.icon)

@@ -1,0 +1,7 @@
+=theme-formElements_column_central($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.theme-formElements_column_central#{$mixinClass}        
+        align-items: center
+        @content

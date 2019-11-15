@@ -1,8 +1,0 @@
-=form-input_radio($mixinClass:'')
-    @if $mixinClass != ''
-        $mixinClass: '.#{$mixinClass}'
-
-    &.form-input_radio#{$mixinClass}
-        display: none
-        +form-button_radio_checked            
-        @content

@@ -1,8 +1,0 @@
-=form-input_like($mixinClass:'')
-    @if $mixinClass != ''
-        $mixinClass: '.#{$mixinClass}'
-
-    &.form-input_like#{$mixinClass}
-        display: none
-        +form-button_like_checked            
-        @content

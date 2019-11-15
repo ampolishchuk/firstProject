@@ -9,7 +9,7 @@ mixin title()
     if attributes.params
         +mergeObj(params, attributes.params)
 
-    span(class=params.mod)
+    span(class=params.mod, onclick=params.onclick)
         | #{params.value}
         +title-text(params=params.text)
         +title-subtext(params=params.subtext)

@@ -1,8 +1,0 @@
-=form-input_toggle($mixinClass:'')
-    @if $mixinClass != ''
-        $mixinClass: '.#{$mixinClass}'
-
-    &.form-input_toggle#{$mixinClass}
-        display: none
-        +form-button_toggle_checked            
-        @content

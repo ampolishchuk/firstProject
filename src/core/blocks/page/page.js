@@ -1,4 +1,4 @@
 export default function page() {
-    console.log('123')
+    console.log('page')
     return this
 }

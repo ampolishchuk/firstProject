@@ -7,6 +7,6 @@ mixin button()
     if attributes.params
         +mergeObj(params, attributes.params)
 
-    button(class=params.mod+' '+params.js, disabled)
+    button(class=params.mod+params.js, type='button', onclick=params.onclick)&attributes(params.attr)
         | #{params.value}
         block

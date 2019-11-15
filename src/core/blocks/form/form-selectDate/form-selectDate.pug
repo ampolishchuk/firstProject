@@ -1,12 +1,13 @@
 mixin form-selectDate()
-    - var mod = ''
-    if attributes.params
-        - var params = attributes.params
-        - var mod = params.mod?mod + ' ' + params.mod:mod
-        - var arrival = params.arrival?params.arrival:{} 
-        - var leave = params.leave?params.leave:{} 
+    - var params = {}
+    - params.mod = 'form-selectDate'
+    - params.arrival = {mod: params.mod + '_arrival'}
+    - params.leave = {mod: params.mod + '_leave'}
 
-    div(class=`form-selectDate${mod}`)
-        +form-dropdown(params=arrival)  
-        +form-dropdown(params=leave)
+    if attributes.params
+        +mergeObj(params, attributes.params)   
+
+    div(class=params.mod) 
+        +form-dropdown(params=params.arrival)  
+        +form-dropdown(params=params.leave)
         block

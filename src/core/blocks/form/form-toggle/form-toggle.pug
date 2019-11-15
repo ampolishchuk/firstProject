@@ -1,20 +1,16 @@
 mixin form-toggle()
-    - var mod = ''
+    - var params = {}
+    - params.mod = 'form-toggle'
+    - params.label = {mod: params.mod + '_label'}
+    - params.title = {mod: params.mod + '_title'}
+    - params.input = {mod: params.mod + '_input',attr:{type:'checkbox'}}
+    - params.button = {mod: params.mod + '_button'}
+
     if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod+' ' + params.mod:mod
-        - var label = params.label?params.label:{}
-        - var title = params.title?params.title:{}
-        - var input = params.input?params.input:{}
-        - var button = params.button?params.button:{}
-        - label.mod = 'form-label' + (label.mod?' ' + label.mod:'')   
-        - title.mod = 'form-title form-title_toggle' + (title.mod?' ' + title.mod:'')
-        - input.mod = 'form-input form-input_toggle' + (input.mod?' ' + input.mod:'')
-        - button.mod = 'form-button form-button_toggle' + (button.mod?' ' + button.mod:'') 
-        - input.attr = input.attr?input.attr:{}
-        - input.attr.type = input.attr.type?input.attr.type:'checkbox'
-        
-    +label(params=label)
-        +input(params=input)            
-        +title(params=title)
-            +button(params=button)  
+        +mergeObj(params, attributes.params)
+    
+    div(class=params.mod)
+        +label(params=params.label)
+            +input(params=params.input)
+            +title(params=params.title)
+                +button(params=params.button)

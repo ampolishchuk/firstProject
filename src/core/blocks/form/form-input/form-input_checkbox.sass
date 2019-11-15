@@ -1,8 +1,0 @@
-=form-input_checkbox($mixinClass:'')
-    @if $mixinClass != ''
-        $mixinClass: '.#{$mixinClass}'
-
-    &.form-input_checkbox#{$mixinClass}
-        display: none
-        +form-button_checkbox_checked            
-        @content

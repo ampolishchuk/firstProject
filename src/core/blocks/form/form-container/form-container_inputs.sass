@@ -1,9 +1,0 @@
-=form-container_inputs($mixinClass:'')
-    @if $mixinClass != ''
-        $mixinClass: '.#{$mixinClass}'
-
-    &.form-container_inputs#{$mixinClass}
-        display: grid
-        grid-template-columns: 1fr
-        grid-gap: 20px
-        @content

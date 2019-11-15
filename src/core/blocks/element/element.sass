@@ -1,0 +1,6 @@
+=element($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .element#{$mixinClass}
+        @content

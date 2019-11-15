@@ -1,8 +1,10 @@
-mixin container()
-    - var mod = ''
-    if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod + ' ' + params.mod:mod
+mixin container()    
+    - var params = {}
+    - params.mod = 'container'
+    - params.js = ''
 
-    div(class=`container${mod}`)
+    if attributes.params
+        +mergeObj(params, attributes.params)
+
+    div(class=params.mod+params.js)
         block

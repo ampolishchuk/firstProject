@@ -1,11 +1,10 @@
 mixin form-input()
     - var params = {}
     - params.mod = 'form-input'
-    - params.label = {mod:'form-input_label'}
-    - params.input = {mod:'form-input_input'}
-    - params.title = {mod:'form-input_title'}
-    - params.button = {mod:'form-input_button'}
-    - params.icon = {mod:'form-input_icon'}
+    - params.label = {mod: params.mod + '_label'}
+    - params.input = {mod: params.mod + '_input'}
+    - params.title = {mod: params.mod + '_title'}
+    - params.button = {mod: params.mod + '_button', enable:false}
 
     if attributes.params
         +mergeObj(params, attributes.params)
@@ -14,6 +13,5 @@ mixin form-input()
         +label(params=params.label)
             +title(params=params.title)
             +input(params=params.input)
-            - if(!params.button.hidden)
+            - if(params.button.enable)
                 +button(params=params.button)
-                    +icon(params=params.icon)

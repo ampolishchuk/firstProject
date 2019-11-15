@@ -7,4 +7,4 @@ mixin input()
     if attributes.params
         +mergeObj(params, attributes.params)
 
-    input(class=params.mod+' '+params.js)&attributes(params.attr)
+    input(class=params.mod+params.js)&attributes(params.attr)

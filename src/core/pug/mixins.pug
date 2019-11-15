@@ -16,6 +16,8 @@ mixin mergeObj(obj1, obj2)
                 case key
                     when 'mod'
                         - obj1[key] += ' ' + obj2[key]
+                    when 'js'
+                        - obj1[key] += ' ' + obj2[key]
                     default
                         - obj1[key] = obj2[key]
             - }

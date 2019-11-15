@@ -1,3 +1,5 @@
+@import 'form-like_button_checked'
+    
 =form-like_button($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
@@ -14,4 +16,9 @@
         color: $color_dark25
         font-size: 10px
         text-align: right
+        &::before
+            content: $form-like_button
+            position: absolute
+            top: 0
+            left: 5px
         @content

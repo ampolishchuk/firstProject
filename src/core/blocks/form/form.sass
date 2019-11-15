@@ -1,18 +1,16 @@
 @import 'input/input'
 @import 'label/label'
-@import 'form-label/form-label'
-@import 'form-title/form-title'
-@import 'form-input/form-input'
-@import 'form-dropdown/form-dropdown'
+
 @import 'form-selectDate/form-selectDate'
 @import 'form-checkbox/form-checkbox'
-
 @import 'form-toggle/form-toggle'
-@import 'form-container/form-container'
-@import 'form-button/form-button'
-
+@import 'form-input/form-input'
+@import 'form-dropdown/form-dropdown'
 @import 'form-radio/form-radio'
 @import 'form-like/form-like'
+@import 'form-rate/form-rate'
+@import 'form-slider/form-slider'
+
     
 =form($mixinClass:'')
     @if $mixinClass != ''
@@ -23,18 +21,15 @@
         display: block
         +label
         +input
-        +form-label
-        +form-title
+        +form-selectDate
+        +form-checkbox     
         +form-input
         +form-dropdown
-        +form-selectDate
-        +form-checkbox
-        +form-toggle
-        +form-container
-        +form-button
-        
         +form-radio
+        +form-toggle        
         +form-like
+        +form-rate
+        +form-slider
     @content
 
     

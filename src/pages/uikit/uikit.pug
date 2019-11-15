@@ -6,6 +6,7 @@ block css
     +css("main.css")
     +css("uikit.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    +js('uikit.js')
 block title 
     | index.html
 block body 
@@ -28,235 +29,226 @@ block body
         +panel()
             +content(params={mod:'theme-formElements_content'})
                 +column(params={mod:'theme-formElements_column'})
-                    +container(params={mod:'theme-formElements-container theme-formElements-container_wide'})
-                        +form()
-                            +container(params={mod:'form-container form-container_inputs'})
-                                +form-input(params={
-                                    label:{
-                                        mod:'hello'
-                                    },
-                                    title:{
-                                        text: {tag:'h3', value:'Text field'},
-                                        subtext: {tag:'h3', value:'Default'}
-                                    },
-                                    input:{
-                                        attr:{
-                                            type:'text',
-                                            placeholder: 'Email'}
-                                    },
-                                    button:{hidden:true}
-                                })
-                                +form-input(params={
-                                    title:{
-                                        text: {tag:'h3', value:'Text field'},
-                                        subtext: {tag:'h3', value:'Hover / Focus'}
-                                    },
-                                    input:{
-                                        mod:'input_hovered',
-                                        attr:{
-                                            type:'text',
-                                            value:'This is pretty awesome'
-                                        }
-                                    }
-                                })
-                                +form-dropdown(params={
-                                    title:{
-                                        text: {tag:'h3', value:'Dropdown'},
-                                        subtext: {tag:'h3', value:'Default'}
-                                    },
-                                    input:{
-                                        attr:{
-                                            type:'text',
-                                            value:'Сколько гостей',
-                                        }
-                                    }
-                                })
-                                +form-input(params={
-                                    title:{
-                                        text: {tag:'h3', value:'Masked text field'},
-                                        subtext: {tag:'h3', value:'Default'}
-                                    },
-                                    input:{
-                                        attr:{
-                                            type:'text',
-                                            placeholder:'ДД.ММ.ГГГГ'
-                                        },
-                                        js:"js-input_maskDate"
-                                    }
-                                })
-                    //- +container(params={mod:'theme-formElements-container theme-formElements-container_wide'})
-                        +form()
-                            +form-selectDate(params={
-                                arrival:{
-                                    title:{
-                                        text: {tag:'h3', value:'date Dropdown'}
-                                    },
-                                    input:{
-                                        attr:{
-                                            type:'text',
-                                            placeholder:'ДД.ММ.ГГГГ'
-                                        },
-                                        js:"js-input_maskDate"
-                                    }
-                                },
-                                leave:{
-                                    title:{
-                                        text: {tag:'h3', value:'date Dropdown'}
-                                    },
-                                    input:{
-                                        attr:{
-                                            type:'text',
-                                            value:'19.08.2019',
-                                            placeholder:'ДД.ММ.ГГГГ'
-                                        },
-                                        js:"js-input_maskDate"
-                                    }
-                                }
-                            })
-                    //- +container(params={mod:'theme-formElements-container'})
-                        +form()
-                            +form-dropdown(params={
-                                title:{
-                                    text: {tag:'h3', value:'filter date dropdown'}
-                                },
-                                input:{
-                                    attr:{
-                                        value:'19 авг - 23 авг',
-                                    }
-                                }
-                            })
-                    //- +container(params={mod:'theme-formElements-container'})
-                        +form()
+                    +form(params={mod:'theme-formElements_form theme-formElements_form_wide'})
+                        +container(params={mod:'theme-formElements_container theme-formElements_container_input'})
                             +form-input(params={
                                 title:{
-                                    text: {tag:'h3', value:'subscription text field'}
+                                    text: {tag:'h3', value:'Text field'},
+                                    subtext: {tag:'h3', value:'Default'}
                                 },
                                 input:{
                                     attr:{
                                         type:'text',
-                                        placeholder:'Email'
-                                    }
-                                },
-                                button:{
-                                    mod:'form-button form-button_confirm'
+                                        placeholder: 'Email'}
                                 }
                             })
-                //- +column(params={mod:'theme-formElements_column'})
-                    +container(params={mod:'theme-formElements-container'})
-                        +form()
-                            +title(params={
-                                mod:'form-title',
-                                text:{tag:'h3',value:'Checkbox buttons'}
-                            })
-                            +container(params={mod:'form-container form-container_checkboxes'})
-                                +form-checkbox(params={
-                                    title:{
-                                        text:{
-                                            value:'Можно курить'
-                                        }
+                            +form-input(params={
+                                title:{
+                                    text: {tag:'h3', value:'Text field'},
+                                    subtext: {tag:'h3', value:'Hover / Focus'}
+                                },
+                                input:{
+                                    mod:'input_hovered',
+                                    attr:{
+                                        type:'text',
+                                        value:'This is pretty awesome'
                                     }
-                                })
-                                +form-checkbox(params={
-                                    title:{
-                                        text:{
-                                            value:'Можно с питомцами'
-                                        }
-                                    },
-                                    input:{attr:{checked:''}}
-                                })
-                                +form-checkbox(params={
-                                    title:{
-                                        text:{
-                                            value:'Можно пригласить гостей (до 10 человек)'
-                                        }
-                                    },
-                                    input:{attr:{checked:''}} 
-                                })
-                    +container(params={mod:'theme-formElements-container'})
-                        +form()
-                            +title(params={
-                                mod:'form-title',
-                                text:{tag:'h3',value:'Radio buttons'}
+                                }
                             })
-                            +container(params={mod:'form-container form-container_radio'})
-                                +form-radio(params={
-                                    title:{
-                                        text:{
-                                            value:'Мужчина'
-                                        }
-                                    },
-                                    input:{attr:{name:'testRadio', checked:''}} 
-                                })
-                                +form-radio(params={
-                                    title:{
-                                        text:{
-                                            value:'Женщина'
-                                        }
-                                    },
-                                    input:{attr:{name:'testRadio'}} 
-                                })
-                    +container(params={mod:'theme-formElements-container'})
-                        +form()
-                            +title(params={
-                                mod:'form-title',
-                                text:{tag:'h3',value:'Toggle'}
-                            })
-                            +container(params={mod:'form-container form-container_toggle'})
-                                +form-toggle(params={
-                                    title:{
-                                        text:{
-                                            value:'Получать спецпредложения'
-                                        }
-                                    },
-                                    input:{attr:{name:'testRadio', checked:''}} 
-                                })
-                                +form-toggle(params={
-                                    title:{
-                                        text:{
-                                            value:'Получать спецпредложения'
-                                        }
-                                    },
-                                    input:{attr:{name:'testRadio'}} 
-                                })
-                    +container(params={mod:'theme-formElements-container'})
-                        +form()
-                            +title(params={
-                                mod:'form-title form-title_likes',
-                                text:{tag:'h3',value:'like button'}
-                            })
-                            +container(params={mod:'form-container form-container_likes'})
-                                +form-like(params={
-                                    button:{
-                                        mod:'hello2',
-                                        value:'2'
+                            +form-dropdown(params={
+                                title:{
+                                    text: {tag:'h3', value:'Dropdown'},
+                                    subtext: {tag:'h3', value:'Default'}
+                                },
+                                input:{
+                                    attr:{
+                                        type:'text',
+                                        value:'Сколько гостей',
                                     }
-                                })
-                                +form-like(params={
-                                    button:{
-                                        value:'12'
+                                }
+                            })
+                            +form-input(params={
+                                title:{
+                                    text: {tag:'h3', value:'Masked text field'},
+                                    subtext: {tag:'h3', value:'Default'}
+                                },
+                                input:{
+                                    attr:{
+                                        type:'text',
+                                        placeholder:'ДД.ММ.ГГГГ'
                                     },
-                                    input:{
-                                        attr:{checked:''}
+                                    js:"js-input_maskDate"
+                                }
+                            })
+                    +form(params={mod:'theme-formElements_form theme-formElements_form_wide'})
+                        +form-selectDate(params={
+                            arrival:{
+                                title:{
+                                    text: {tag:'h3', value:'date Dropdown'}
+                                },
+                                input:{
+                                    attr:{
+                                        type:'text',
+                                        placeholder:'ДД.ММ.ГГГГ'
+                                    },
+                                    js:"js-input_maskDate"
+                                }
+                            },
+                            leave:{
+                                title:{
+                                    text: {tag:'h3', value:'date Dropdown'}
+                                },
+                                input:{
+                                    attr:{
+                                        type:'text',
+                                        value:'19.08.2019',
+                                        placeholder:'ДД.ММ.ГГГГ'
+                                    },
+                                    js:"js-input_maskDate"
+                                }
+                            }
+                        })
+                    +form(params={mod:'theme-formElements_form'})
+                        +form-dropdown(params={
+                            title:{
+                                text: {tag:'h3', value:'filter date dropdown'}
+                            },
+                            input:{
+                                attr:{
+                                    value:'19 авг - 23 авг',
+                                }
+                            }
+                        })
+                    +form(params={mod:'theme-formElements_form'})
+                        +form-input(params={
+                            title:{
+                                text: {tag:'h3', value:'subscription text field'}
+                            },
+                            input:{
+                                attr:{
+                                    type:'text',
+                                    placeholder:'Email'
+                                }
+                            },
+                            button:{
+                                enable: true
+                            }
+                        })
+                +column(params={mod:'theme-formElements_column theme-formElements_column_central'})
+                    +form(params={mod:'theme-formElements_form'})
+                        +title(params={
+                            text:{tag:'h3',value:'Checkbox buttons'}
+                        })
+                        +container(params={mod:'theme-formElements_container theme-formElements_container_checkbox'})
+                            +form-checkbox(params={
+                                title:{
+                                    text:{
+                                        value:'Можно курить'
                                     }
-                                })                          
-                //- +column(params={mod:'theme-formElements_column'})
-                    +container(params={mod:'theme-formElements-container'})
-                                +form()
-                                    +form-input(params={
-                                        title:{
-                                            text: {tag:'h3', value:'subscription text field'}
-                                        },
-                                        input:{
-                                            attr:{
-                                                type:'text',
-                                                placeholder:'Email'
-                                            }
-                                        },
-                                        button:{
-                                            mod:'form-button form-button_confirm'
-                                        }
-                                    })
+                                }
+                            })
+                            +form-checkbox(params={
+                                title:{
+                                    text:{
+                                        value:'Можно с питомцами'
+                                    }
+                                },
+                                input:{attr:{checked:''}}
+                            })
+                            +form-checkbox(params={
+                                title:{
+                                    text:{
+                                        value:'Можно пригласить гостей (до 10 человек)'
+                                    }
+                                },
+                                input:{attr:{checked:''}} 
+                            })
+                    +form(params={mod:'theme-formElements_form'})
+                        +title(params={
+                            text:{tag:'h3',value:'Radio buttons'}
+                        })
+                        +container(params={mod:'theme-formElements_container theme-formElements_container_radio'})
+                            +form-radio(params={
+                                title:{
+                                    text:{
+                                        value:'Мужчина'
+                                    }
+                                },
+                                input:{attr:{name:'testRadio', checked:''}} 
+                            })
+                            +form-radio(params={
+                                title:{
+                                    text:{
+                                        value:'Женщина'
+                                    }
+                                },
+                                input:{attr:{name:'testRadio'}} 
+                            })
+                    +form(params={mod:'theme-formElements_form'})
+                        +title(params={
+                            text:{tag:'h3',value:'Toggle'}
+                        })
+                        +container(params={mod:'theme-formElements_container theme-formElements_container_toggle'})
+                            +form-toggle(params={
+                                title:{
+                                    text:{
+                                        value:'Получать спецпредложения'
+                                    }
+                                },
+                                input:{attr:{name:'testRadio', checked:''}} 
+                            })
+                            +form-toggle(params={
+                                title:{
+                                    text:{
+                                        value:'Получать спецпредложения'
+                                    }
+                                },
+                                input:{attr:{name:'testRadio'}} 
+                            })
+                    +form(params={mod:'theme-formElements_form'})
+                        +title(params={
+                            text:{tag:'h3',value:'like button'}
+                        })
+                        +container(params={mod:'theme-formElements_container theme-formElements_container_like'})
+                            +form-like(params={
+                                button:{
+                                    value:'2'
+                                },
+                                input: {
+                                    mod:'theme-formElements_form-like_input'
+                                }
+                            })
+                            +form-like(params={
+                                button:{
+                                    value:'12'
+                                },
+                                input:{
+                                    attr:{checked:''}
+                                }
+                            })
+                    +form(params={mod:'theme-formElements_form'})
+                        +title(params={
+                            text:{tag:'h3',value:'rate button'}
+                        })  
+                        +container(params={mod:'theme-formElements_container theme-formElements_container_rate'})
+                            +form-rate(params={
+                                defaultRate: 4,
+                                input:{attr:{name:'rateButtons1'}}
+                            })     
+                            +form-rate(params={
+                                defaultRate: 5,
+                                input:{attr:{name:'rateButtons2'}}
+                            })                                           
+                +column(params={mod:'theme-formElements_column'})
+                    +form(params={mod:'theme-formElements_form'})
+                        +container(params={mod:'theme-formElements_container theme-formElements_container_slider'})
+                            +form-slider(params={
+                                title: {
+                                    text:{tag:'h3',value:'range slider'},
+                                    subtext:{tag:'h3'}
+                                },                                
+                                defaultPoints: [5000, 10000, 12000],
+                                input:{attr:{name:'rateButtons1', min:'0', max:'15000', postfix: '₽'}}
+                            })   
         +panel()
     +js('vendors.js')
-    +js('main.js')  
-    +js('uikit.js')

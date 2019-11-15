@@ -1,4 +1,4 @@
 import page from '../blocks/page/page';
-import {input} from '../blocks/form/form';
+import form from '../blocks/form/form';
 
-export {page, input}
+export {page, form}

@@ -1,9 +1,13 @@
-@import 'form-dropdown-body/form-dropdown-body'
+@import 'form-dropdown_label'
+@import 'form-dropdown_title'
+@import 'form-dropdown_button'
     
 =form-dropdown($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
     .form-dropdown#{$mixinClass}
-        +form-dropdown-body
+        +form-dropdown_label
+        +form-dropdown_title
+        +form-dropdown_button
         @content

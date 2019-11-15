@@ -1,21 +1,13 @@
-@import 'form-input_checkbox'
-@import 'form-input_radio'
-@import 'form-input_toggle'
-@import 'form-input_hidden'
-@import 'form-input_like'
-
 @import 'form-input_label'
+@import 'form-input_title'
+@import 'form-input_button'
     
 =form-input($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
     .form-input#{$mixinClass}
-        +form-input_checkbox
-        +form-input_radio
-        +form-input_toggle
-        +form-input_hidden
-        +form-input_like
-
         +form-input_label
+        +form-input_title
+        +form-input_button
         @content

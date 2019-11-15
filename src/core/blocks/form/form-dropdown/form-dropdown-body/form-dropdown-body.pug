@@ -1,8 +1,0 @@
-mixin form-dropdown-body()
-    - var mod = ''
-    if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod + ' ' + params.mod:mod
-
-    div(class=`form-dropdown-body${mod}`)
-        block

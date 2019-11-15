@@ -1,0 +1,21 @@
+@import 'theme-formElements_container_input'
+@import 'theme-formElements_container_checkbox'
+@import 'theme-formElements_container_like'
+@import 'theme-formElements_container_radio'
+@import 'theme-formElements_container_toggle'
+@import 'theme-formElements_container_rate'
+@import 'theme-formElements_container_slider'
+    
+=theme-formElements_container($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .theme-formElements_container#{$mixinClass}
+        +theme-formElements_container_input
+        +theme-formElements_container_checkbox
+        +theme-formElements_container_like
+        +theme-formElements_container_radio
+        +theme-formElements_container_toggle
+        +theme-formElements_container_rate
+        +theme-formElements_container_slider
+        @content

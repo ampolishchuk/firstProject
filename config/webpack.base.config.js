@@ -36,9 +36,9 @@ let entires = {}
 PATHS.a_pages.map((s_pageName) => {
     entires[s_pageName] = `${PATHS.s_pages}/${s_pageName}/${s_pageName}.js`
 }) 
-PATHS.a_templates.map((s_templateName) => {
-    entires[s_templateName] = `${PATHS.s_templates}/${s_templateName}/${s_templateName}.js`
-})
+// PATHS.a_templates.map((s_templateName) => {
+//     entires[s_templateName] = `${PATHS.s_templates}/${s_templateName}/${s_templateName}.js`
+// })
 
 
 console.log('Blocks: ')
@@ -73,6 +73,16 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                    presets: ['@babel/preset-env']
+                    }
+                }
+            },
             {
                 test: /\.pug/, // Регулярное выражение для обробатываемых файлов
                 loader: 'pug-loader' // Используемый loader
