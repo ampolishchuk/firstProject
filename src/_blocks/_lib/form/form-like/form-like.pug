@@ -1,0 +1,15 @@
+mixin form-like(extData = {})
+    - var data = {}
+    - data.label = {attr:{class:'form-like_label'}}
+    - data.title = {attr:{class:'form-like_title'}}
+    - data.input = {attr:{class:'form-like_input',type:'checkbox'}}
+    - data.button = {attr:{class:'form-like_button'}}
+    
+    if extData
+        +mergeData(data, extData)
+
+    div.form-like&attributes(data.attr)
+        +label(data.label)  
+            +input(data.input) 
+            +title(data.title)   
+                +button(data.button)     

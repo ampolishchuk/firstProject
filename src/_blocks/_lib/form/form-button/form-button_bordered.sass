@@ -1,0 +1,24 @@
+=form-button_bordered($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.form-button_bordered#{$mixinClass}
+        background: #fff
+        color: $color_purple
+        position: relative
+        background-clip: padding-box
+        border: 2px solid transparent
+        border-radius: 22px
+
+        &:before
+            content: ''
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            z-index: -1
+            margin: -2px
+            border-radius: inherit
+            background: $color_purple_gradient
+        

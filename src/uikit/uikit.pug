@@ -1,0 +1,505 @@
+extends ../_templates/main
+include ../_pug/mixins
+include ../_blocks/blocks
+
+block head    
+    title hello
+block body 
+    +page({attr: {class:'page_uikit'}})      
+        +page-panel
+            +page-content({attr: {class:'theme-colorsTypes_content'}})
+                +column({attr: {class:'theme-colorsTypes_column'}})
+                    each tint in ['', '75', '50', '25', '5',]
+                        +color({
+                            example: {
+                                attr: {class: `color-example_dark${tint}`}
+                            }, 
+                            name: {content: `Dark Shade ${tint?tint:100}%`},
+                            hex: {content: '#1F2041'}
+                        })
+                    +color({
+                        example: {
+                            attr: {class: `color-example_purple`}
+                        }, 
+                        name: {content: `Purple`},
+                        hex: {content: '#BC9CFF'}
+                    })
+                    +color({
+                        example: {
+                            attr: {class: `color-example_green`}
+                        }, 
+                        name: {content: `Green`},
+                        hex: {content: '#6FCF97'}
+                    })
+                +column({attr: {class:'theme-colorsTypes_column'}})
+                    +type({
+                        tag: {
+                            name: 'h1',
+                            content: 'H1'
+                        }, 
+                        example: {content: `This one is the sub-section or widget title`}
+                    })
+                    +type({
+                        tag: {
+                            name: 'h2',
+                            content: 'H2'
+                        }, 
+                        example: {content: `Next one is the item title inside widgets`}
+                    })
+                    +type({
+                        tag: {
+                            name: 'h3',
+                            content: 'H3'
+                        }, 
+                        example: {content: `This is a label or CTA text`}
+                    })
+                    +type({
+                        tag: {
+                            name: 'span',
+                            content: 'Body'
+                        }, 
+                        example: {content: `This is the body text which is used for most of the design, like paragraphs, lists, etc.`}
+                    })
+        +page-panel
+            +page-content({attr:{class:'theme-formElements_content'}})
+                +column({attr:{class:'theme-formElements_column'}})
+                    +form({attr:{class:'theme-formElements_form theme-formElements_form_wide'}})
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_input'}})
+                            +form-input({
+                                title:{
+                                    text: {tag:'h3', content:'Text field'},
+                                    subtext: {tag:'h3', content:'Default'}
+                                },
+                                input:{
+                                    attr:{placeholder: 'Email'}
+                                }
+                            })
+                            +form-input({
+                                title:{
+                                    text: {tag:'h3', content:'Text field'},
+                                    subtext: {tag:'h3', content:'Hover / Focus'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'input_hovered',
+                                        value:'This is pretty awesome'
+                                    }
+                                }
+                            })
+                            +form-dropdown({
+                                title:{
+                                    text: {tag:'h3', content:'Dropdown'},
+                                    subtext: {tag:'h3', content:'Default'}
+                                },
+                                input:{
+                                    attr:{
+                                        value:'Сколько гостей',
+                                    }
+                                }
+                            })
+                            +form-input({
+                                title:{
+                                    text: {tag:'h3', content:'Masked text field'},
+                                    subtext: {tag:'h3', content:'Default'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'js_form-input_maskDate',
+                                        placeholder:'ДД.ММ.ГГГГ'
+                                    }
+                                }
+                            })
+                    +form({attr:{class:'theme-formElements_form theme-formElements_form_wide'}})
+                        +form-selectDate({
+                            arrival:{
+                                title:{
+                                    text: {tag:'h3', content:'date Dropdown'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'js_form-input_maskDate',
+                                        placeholder:'ДД.ММ.ГГГГ'}
+                                }
+                            },
+                            leave:{
+                                title:{
+                                    text: {tag:'h3', content:'date Dropdown'}
+                                },
+                                input:{
+                                    attr:{
+                                        class:'js_form-input_maskDate',
+                                        value:'19.08.2019',
+                                        placeholder:'ДД.ММ.ГГГГ'
+                                    }
+                                }
+                            }
+                        })
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +form-dropdown({
+                            title:{
+                                text: {tag:'h3', content:'filter date dropdown'}
+                            },
+                            input:{
+                                attr:{
+                                    value:'19 авг - 23 авг',
+                                }
+                            }
+                        })
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +form-input({
+                            title:{
+                                text: {tag:'h3', content:'subscription text field'}
+                            },
+                            input:{
+                                attr:{placeholder:'Email'}
+                            },
+                            button:{enable: true}
+                        })
+                +column({attr:{class:'theme-formElements_column theme-formElements_column_central'}})
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +title({
+                            text:{tag:'h3',content:'Checkbox buttons'}
+                        })
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_checkbox'}})
+                            +form-checkbox({
+                                title:{
+                                    text:{
+                                        content:'Можно курить'
+                                    }
+                                }
+                            })
+                            +form-checkbox({
+                                title:{
+                                    text:{
+                                        content:'Можно с питомцами'
+                                    }
+                                },
+                                input:{
+                                    attr:{checked:'checked'}
+                                }
+                            })
+                            +form-checkbox({
+                                title:{
+                                    text:{
+                                        content:'Можно пригласить гостей (до 10 человек)'
+                                    }
+                                },
+                                input:{
+                                    attr:{checked:'checked'}
+                                } 
+                            })
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +title({
+                            text:{tag:'h3',content:'Radio buttons'}
+                        })
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_radio'}})
+                            +form-radio({
+                                title:{
+                                    text:{
+                                        content:'Мужчина'
+                                    }
+                                },
+                                input:{
+                                    attr:{
+                                        name:'testRadio', 
+                                        checked:'checked'
+                                    }
+                                } 
+                            })
+                            +form-radio({
+                                title:{
+                                    text:{
+                                        content:'Женщина'
+                                    }
+                                },
+                                input:{
+                                    attr:{name:'testRadio'}
+                                } 
+                            })
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +title({
+                            text:{tag:'h3',content:'Toggle'}
+                        })
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_toggle'}})
+                            +form-toggle({
+                                title:{
+                                    text:{
+                                        content:'Получать спецпредложения'
+                                    }
+                                },
+                                input:{
+                                    attr:{
+                                        name:'testRadio', 
+                                        checked:'checked'
+                                    }
+                                } 
+                            })
+                            +form-toggle({
+                                title:{
+                                    text:{
+                                        content:'Получать спецпредложения'
+                                    }
+                                },
+                                input:{
+                                    attr:{name:'testRadio'}
+                                } 
+                            })
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +title({
+                            text:{tag:'h3',content:'like button'}
+                        })
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_like'}})
+                            +form-like({
+                                button:{
+                                    content:'2'
+                                }
+                            })
+                            +form-like({
+                                button:{
+                                    content:'12'
+                                },
+                                input:{
+                                    attr:{checked:'checked'}
+                                }
+                            })
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +title({
+                            text:{tag:'h3',content:'rate button'}
+                        })  
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_rate'}})
+                            +form-rate({
+                                defaultRate: 4,
+                                input:{
+                                    attr:{name:'rateButtons1'}
+                                }
+                            })     
+                            +form-rate({
+                                defaultRate: 5,
+                                input:{
+                                    attr:{name:'rateButtons2'}
+                                }
+                            })                                           
+                +column({attr:{class:'theme-formElements_column'}})
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_slider'}})
+                            +form-slider({
+                                title: {
+                                    text:{tag:'h3',content:'range slider'},
+                                    subtext:{tag:'h3'}
+                                },                                
+                                defaultPoints: [5000, 10000],
+                                input:{attr:{name:'rateButtons1', min:'0', max:'15000', postfix: '₽'}}
+                            })   
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +title({
+                            text:{tag:'h3',content:'buttons'}
+                        })
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_buttons'}}) 
+                            +form-button({content: 'CLICK ME'})
+                            +form-button({
+                                attr: {
+                                    class:'form-button_disabled'
+                                }, 
+                                content: 'CLICK ME'
+                            })
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_buttons'}}) 
+                            +form-button({
+                                attr:{
+                                    class:'form-button_bordered'
+                                },
+                                content: 'CLICK ME'
+                            })
+                            +form-button({
+                                attr: {
+                                    class:'form-button_bordered form-button_disabled'
+                                }, 
+                                content: 'CLICK ME'
+                            })
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_buttons'}}) 
+                            +form-button({
+                                attr:{
+                                    class:'form-button_simple'
+                                },
+                                content: 'CLICK ME'
+                            })
+                            +form-button({
+                                attr: {
+                                    class:'form-button_simple form-button_disabled'
+                                }, 
+                                content: 'CLICK ME'
+                            })
+                        +form-button({
+                                attr: {
+                                    class:'form-button_big'
+                                }, 
+                                content: 'Перейти к оплате'
+                            })
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +title({
+                            text:{tag:'h3',content:'pagination'}
+                        })
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_pagination'}}) 
+                            +form-pagination
+            +page-content({attr:{class:'theme-formElements_content'}})
+                +column({attr:{class:'theme-formElements_column'}})
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_dropdowns'}})
+                            +form-dropdown({
+                                attr:{class: 'form-dropdown_rooms_closed'},
+                                title:{
+                                    text: {tag:'h3', content:'dropdown'},
+                                    subtext: {tag:'h3', content: 'default'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'form-dropdown_input_solid',
+                                        value:'Количество комнат',
+                                        readonly:'true'
+                                    }
+                                },
+                                body: {
+                                    attr: {class: 'form-dropdown_body_solid'}
+                                }
+                            })       
+                               +form-quantity({
+                                   attr:{class: 'form-quantity_rooms_closed'},
+                                    elements: [
+                                        {
+                                            content: 'Спальни',
+                                            input:{attr:{value:2}}
+                                        },
+                                        {
+                                            content: 'Кровати',
+                                            input:{attr:{value:2}}
+                                        },
+                                        {content: 'Ванные комнаты'}
+                                    ]
+                                })                          
+                            +form-dropdown({
+                                attr: {class: 'form-dropdown_rooms'},
+                                title:{
+                                    text: {tag:'h3', content:'dropdown'},
+                                    subtext: {tag:'h3', content: 'expanded'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'form-dropdown_input_solid',
+                                        value:'Количество комнат',
+                                        readonly:'true'
+                                    }
+                                },
+                                body: {
+                                    attr: {class: 'form-dropdown_body_solid'}
+                                }
+                            })   
+                               +form-quantity({
+                                   attr: {class: 'form-quantity_rooms'},
+                                    elements: [
+                                        {
+                                            content: 'Спальни',
+                                            input:{attr:{value:2}}
+                                        },
+                                        {
+                                            content: 'Кровати',
+                                            input:{attr:{value:2}}
+                                        },
+                                        {content: 'Ванные комнаты'}
+                                    ]
+                                })  
+                +column({attr:{class:'theme-formElements_column theme-formElements_column_central '}})
+                    +form({attr:{class:'theme-formElements_form theme-formElements_form_wide theme-formElements_form_offset'}})
+                        +form-dropdown({
+                            attr: {class: 'form-dropdown_guests'},
+                            title: {
+                                text: {tag:'h3', content:'dropdown'}
+                            },
+                            input: {
+                                attr:{
+                                    class: 'form-dropdown_input_solid',
+                                    value:'Сколько гостей',
+                                    readonly:'true'
+                                }
+                            },
+                            body: {
+                                attr: {class: 'form-dropdown_body_solid'}
+                            }
+                        }) 
+                            +form-quantity({
+                                attr: {class: 'form-quantity_guests'},
+                                elements: [
+                                    {content: 'Взрослые'},
+                                    {content: 'Дети'},
+                                    {content: 'Младенцы'}
+                                ],
+                                enableControls: true
+                            })
+                +column({attr:{class:'theme-formElements_column'}})
+                    +form({attr:{class:'theme-formElements_form theme-formElements_form_wide'}})
+                        +form-dropdown({
+                            attr: {class: 'form-dropdown_guests_filled'},
+                            title: {
+                                text: {tag:'h3', content:'dropdown'}
+                            },
+                            input: {
+                                attr:{
+                                    class: 'form-dropdown_input_solid',
+                                    value:'Сколько гостей',
+                                    readonly:'true'
+                                }
+                            },
+                            body: {
+                                attr: {class: 'form-dropdown_body_solid'}
+                            }
+                        }) 
+                            +form-quantity({
+                                attr: {class: 'form-quantity_guests_filled'},
+                                elements: [
+                                    {
+                                        content: 'Взрослые',
+                                        input:{attr:{value:2}}
+                                    },
+                                    {
+                                        content: 'Дети',
+                                        input:{attr:{value:1}}
+                                    },
+                                    {content: 'Младенцы'}
+                                ],
+                                enableControls: true
+                            })
+            +page-content({attr:{class:'theme-formElements_content'}})
+                +column({attr:{class:'theme-formElements_column'}})
+                    +form({attr:{class:'theme-formElements_form'}})
+                        +container({attr:{class:'theme-formElements_container theme-formElements_container_dropdowns'}})
+                            +form-dropdown({
+                                title:{
+                                    text: {tag:'h3', content:'dropdown'},
+                                    subtext: {tag:'h3', content: 'default'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'form-dropdown_input_solid',
+                                        value:'2 спальни, 2 кровати...',
+                                    }
+                                },
+                                body: {
+                                    attr: {class: 'form-dropdown_body_solid'}
+                                }
+                            })                                
+                            +form-dropdown({
+                                title:{
+                                    text: {tag:'h3', content:'dropdown'},
+                                    subtext: {tag:'h3', content: 'expanded'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'form-dropdown_input_solid',
+                                        value:'2 спальни, 2 кровати...',
+                                    }
+                                },
+                                body: {
+                                    attr: {class: 'form-dropdown_body_solid'}
+                                }
+                            })
+    //-     +panel()
+    //- +js('vendors.js')
+

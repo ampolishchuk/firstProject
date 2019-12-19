@@ -1,0 +1,20 @@
+mixin form-rate(extData = {})
+    - var data = {attr:{class:'js_form-rate'}}
+    - data.label = {attr:{class: 'form-rate_label'}}
+    - data.title = {attr:{class: 'form-rate_title'}}
+    - data.input = {attr:{class: 'form-rate_input', type:'radio'}}
+    - data.button = {attr:{class: 'form-rate_button'}}
+
+    if extData
+        +mergeData(data, extData)
+
+    div.form-rate&attributes(data.attr)
+        - for (let i = 1; i <= 5; i++) {
+            - data.input.attr.value = i
+            - if (data.defaultRate == i) data.input.attr.checked = 'checked'
+            - else data.input.attr.checked = false
+            +label(data.label)
+                +input(data.input)
+                +title(data.title)
+                    +button(data.button)
+        - }

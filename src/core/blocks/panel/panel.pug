@@ -1,8 +1,0 @@
-mixin panel()
-    - var mod = ''
-    if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod + ' ' + params.mod:mod
-        
-    section(class=`panel${mod}`)
-        block

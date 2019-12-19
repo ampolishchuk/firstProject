@@ -1,0 +1,23 @@
+mixin css(href)
+    link(rel="stylesheet", href=href)
+
+mixin js(src)
+    script(type="text/javascript" src=src)
+
+mixin mergeData(data1, data2)
+    - if(!data1) data1 = data2
+    - else {
+        - for(var key in data2) {            
+            - if(typeof data2[key] === 'object') {
+                - data1[key] = key in data1?data1[key]:{}
+                +mergeData(data1[key], data2[key])
+            - } else {     
+                - data1[key] = key in data1?data1[key]:''       
+                case key
+                    when 'class'
+                        - data1[key] += ' ' + data2[key]
+                    default
+                        - data1[key] = data2[key]
+            - }
+        - }
+    - }

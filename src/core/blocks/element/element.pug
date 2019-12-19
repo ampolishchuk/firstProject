@@ -1,9 +1,0 @@
-mixin element()
-    - var params = {}
-    - params.mod = 'element'
-
-    if attributes.params
-        +mergeObj(params, attributes.params)
-
-    div(class=params.mod)&attributes(params.attr)
-        block

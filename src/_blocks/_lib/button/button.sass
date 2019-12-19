@@ -1,0 +1,12 @@
+=button($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .button#{$mixinClass}
+        background-color: inherit
+        border: none
+        cursor: pointer
+        outline-width: 0        
+        &:before
+            font-family: 'Material Icons'
+        @content

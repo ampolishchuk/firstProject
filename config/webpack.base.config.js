@@ -6,58 +6,124 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Выреза
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // Копирует файлов 
 
 // Пути к основным директориям
-const PATHS = {
-    s_src: path.join(__dirname, '../src'),
-    s_dist: path.join(__dirname, '../dist'),
-    s_css: 'css',
-    s_js: 'js',
-    s_img: 'img',
-    s_root: 'root'
+class ProjectPaths {
+    constructor() {
+        let srcPath = path.join(__dirname, '../src')
+        let distPath = path.join(__dirname, '../dist')
+        
+        this.src = {
+            root: srcPath,
+            entires: {
+                root: `${srcPath}`,
+            },
+            pages: {
+                root: `${srcPath}`,
+            },
+            blocks: {
+                root: `${srcPath}/_blocks`,
+            },
+            js: {
+                root: `${srcPath}/_js`
+            },
+            sass: {
+                root: `${srcPath}/_sass`,
+            },
+            img: {
+                root: `${srcPath}/_img`,
+            },
+            fonts: {
+                root: `${srcPath}/_fonts`,
+            },
+            special: {
+                root: `${srcPath}/_special`,
+            },
+        }
+        this.dist = {
+            root: distPath,
+            fonts: {
+                root: `${distPath}/_fonts`,
+            }
+        }
+
+        this.load()
+    }
+    load() {
+        this.loadEntiresList()
+        this.src.js.list = this.findFiles('js', this.src.blocks.root)
+        this.src.img.list = this.findFiles('png', this.src.blocks.root)
+        this.src.fonts.list = this.findFolders('js', this.src.fonts.root, false)
+        this.src.pages.list = this.findFiles('pug', this.src.pages.root)
+    }
+    find(type, patterns, path, nested) {
+        let founded = []
+        let items = fs.readdirSync(path)
+        let folders = items.filter(name => !name.match(/\./))   
+        let files = items.filter(name => name.match(/\./))  
+        let matchingItems = (type == 'file' && files.length > 0)?items:folders
+        
+        if(matchingItems) {
+            matchingItems.forEach((name) => {
+                if(name.charAt(0) === '_') return // Escape files and folders starts with _
+
+                let itemPath = `${path}/${name}`
+                let patternsArray = patterns.split(',')
+
+                if(type == 'file') name = name.split('.')[1] // получаем расширение файла    
+
+                patternsArray.forEach((pattern) => {
+                    pattern = pattern.replace(/\s+/g,'');
+
+                    if(
+                        (!pattern && (type != 'file' || name)) 
+                        || (pattern && name == pattern)
+                    ) {
+                        founded.push(itemPath)
+                    }
+                    else if((type == 'folder' || !name) && nested) founded = founded.concat(this.find(type, pattern, itemPath))
+                })
+
+            })  
+        }
+    
+        return founded   
+    }
+    findFolders(patterns, path, nested = true) {
+        return this.find('folder', patterns, path, nested)
+    }
+    findFiles(patterns, path, nested = true) {
+        return this.find('file', patterns, path, nested)
+    }
+    loadEntiresList() {
+        this.src.entires.list = {}
+        this.findFiles('sass, js', this.src.entires.root).forEach((path) => {
+            path = './' + path.split('\\')[path.split('\\').length - 1] // Относительный путь
+            let [filename, extension] = path.split('/')[path.split('/').length - 1].split('.')
+            this.src.entires.list[filename] = path
+        })
+    }
 }
-// Директории точек вхождения для вебпака
-PATHS.s_core = `${PATHS.s_src}/core`;
-PATHS.s_blocks = `${PATHS.s_core}/blocks`;
-PATHS.s_fonts = `${PATHS.s_core}/fonts`;
-PATHS.s_pages = `${PATHS.s_src}/pages`;
-PATHS.s_templates = `${PATHS.s_pages}/_templates`;
 
-// Имена файлов .pug в директории разработки
-PATHS.a_blocks = fs.readdirSync(PATHS.s_blocks)
-PATHS.a_blocksWithImg = PATHS.a_blocks.filter((s_blockName) => {        
-    return fs.readdirSync(`${PATHS.s_blocks}/${s_blockName}`).filter(s_folderName => s_folderName == 'img').length > 0?true:false;
-})
+const paths = new ProjectPaths()
 
-PATHS.a_pages = fs.readdirSync(PATHS.s_pages)
-                    .filter(s_pageName => !s_pageName.startsWith('_'))
-PATHS.a_templates = fs.readdirSync(PATHS.s_templates)
-
-let entires = {}
-
-PATHS.a_pages.map((s_pageName) => {
-    entires[s_pageName] = `${PATHS.s_pages}/${s_pageName}/${s_pageName}.js`
-}) 
-// PATHS.a_templates.map((s_templateName) => {
-//     entires[s_templateName] = `${PATHS.s_templates}/${s_templateName}/${s_templateName}.js`
-// })
-
-
-console.log('Blocks: ')
-console.log(PATHS.a_blocks)
-console.log('Blocks with img: ')
-console.log(PATHS.a_blocksWithImg)
-console.log('Pages: ')
-console.log(PATHS.a_pages)
-console.log('Templates: ')
-console.log(PATHS.a_templates)
+console.log('Entires files: ')
+console.log(paths.src.entires.list)
+console.log('Pages files: ')
+console.log(paths.src.pages.list)
+console.log('JS files: ')
+console.log(paths.src.js.list)
+console.log('IMG folders: ')
+console.log(paths.src.img.list)
+console.log('FONTS folders: ')
+console.log(paths.src.fonts.list)
 
 module.exports = {
     externals: {
-        paths: PATHS // Подключение внешних объектов
+        paths: paths, // Подключение внешних объектов,
     },  
-    entry: entires,
+    entry: paths.src.entires.list,
     output: {
-        filename: `${PATHS.s_js}/[name].js`, // Точка выхода
-        path: PATHS.s_dist // Путь сохранения файла при сборке
+        filename: 'js/[name].js', // Точка выхода
+        // path: paths.dist.root, // Путь сохранения файла при сборке
     },
     optimization: { // Выносит подключенные модули в отдельный файл
         splitChunks: {
@@ -119,41 +185,41 @@ module.exports = {
                 test: /\.(png|jpg|gif)$/, 
                 loader: 'url-loader',
                 options: {
-                    limit: 8192,
-                    name: '[name].[ext]'
+                    limit: false,
+                    name: 'img/[name].[ext]' // Путь, куда копировать файлы
                 } 
             },
             { 
                 test: /\.(woff|woff2|ttf|eot|svg)$/,
                 loader: 'url-loader',
                 options: {
-                    limit: 5000,
-                    name: '[name].[ext]'
+                    limit: false,
+                    name: 'fonts/[name].[ext]',
+                    publicPath: '../' // Путь к корневой папке
                 } 
             }
         ]
     },
     plugins: [
-        ...PATHS.a_pages.map(s_pageName => new HtmlWebpackPlugin({
-            template: `${PATHS.s_pages}/${s_pageName}/${s_pageName}.pug`, // Файл шаблона 
-            filename: `${PATHS.s_dist}/${s_pageName}.html`, // Обработанный файл
-            inject: false
+        ...paths.src.pages.list.map(path => new HtmlWebpackPlugin({
+            template: path, // Файл шаблона
+            filename: path.split('/')[path.split('/').length - 1].replace('pug', 'html'),
+            // inject: false
         })),
         new MiniCssExtractPlugin({
-            filename: `${PATHS.s_css}/[name].css` // [hash] для добавления хеша к имени файла
+            filename: `css/[name].css`, // [hash] для добавления хеша к имени файла
         }),
         new CopyWebpackPlugin([            
-            { from: `${PATHS.s_src}/${PATHS.s_root}` },
-            { from: `${PATHS.s_fonts}`, to: 'fonts' },
-
-            ...PATHS.a_blocksWithImg.map(s_blockName => (
-                { from: `${PATHS.s_blocks}/${s_blockName}/img`, to: `img` }
+            { from: paths.src.special.root },
+            { from: paths.src.js.root, to: 'js' },
+            ...paths.src.js.list.map(path => (
+                { from: path, to: `js` }
             ))
         ]),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
-          })
+        })
     ],
 } 
  

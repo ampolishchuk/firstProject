@@ -1,8 +1,0 @@
-mixin page()
-    - var mod = ''
-    if attributes.params
-        - var params = attributes.params
-        - mod = params.mod?mod + ' ' + params.mod:mod
-
-    body(class=`page${mod}`)
-        block

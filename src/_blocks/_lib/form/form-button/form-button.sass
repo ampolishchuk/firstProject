@@ -1,0 +1,25 @@
+@import 'form-button_disabled'
+@import 'form-button_bordered'
+@import 'form-button_simple'
+@import 'form-button_big'
+@import 'form-button_rounded'
+    
+=form-button($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .form-button#{$mixinClass}
+        background: $color_purple_gradient
+        width: 99px
+        height: 44px
+        border-radius: 22px
+        color: #fff
+        font-size: 12px
+        font-weight: bold
+        text-transform: uppercase
+        +form-button_disabled
+        +form-button_bordered
+        +form-button_simple
+        +form-button_big
+        +form-button_rounded
+        @content
