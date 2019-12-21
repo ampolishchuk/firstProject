@@ -1,8 +1,3 @@
-export { 
-    formInput, 
-    formRate, 
-    formSlider, 
-    formPagination, 
-    formDropdown, 
-    formQuantity
-} from "./_lib/form/form";
+export { Button } from "./_lib/button/button";
+
+export { form } from "./_lib/form/form";

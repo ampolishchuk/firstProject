@@ -7,8 +7,8 @@ block head
 block body 
     +page({attr: {class:'page_uikit'}})      
         +page-panel
-            +page-content({attr: {class:'theme-colorsTypes_content'}})
-                +column({attr: {class:'theme-colorsTypes_column'}})
+            +page-content({attr: {class:'uikit_colorsTypes_content'}})
+                +column({attr: {class:'uikit_colorsTypes_column'}})
                     each tint in ['', '75', '50', '25', '5',]
                         +color({
                             example: {
@@ -31,7 +31,7 @@ block body
                         name: {content: `Green`},
                         hex: {content: '#6FCF97'}
                     })
-                +column({attr: {class:'theme-colorsTypes_column'}})
+                +column({attr: {class:'uikit_colorsTypes_column'}})
                     +type({
                         tag: {
                             name: 'h1',
@@ -61,10 +61,10 @@ block body
                         example: {content: `This is the body text which is used for most of the design, like paragraphs, lists, etc.`}
                     })
         +page-panel
-            +page-content({attr:{class:'theme-formElements_content'}})
-                +column({attr:{class:'theme-formElements_column'}})
-                    +form({attr:{class:'theme-formElements_form theme-formElements_form_wide'}})
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_input'}})
+            +page-content({attr:{class:'uikit_formElements_content'}})
+                +column({attr:{class:'uikit_formElements_column'}})
+                    +form({attr:{class:'uikit_formElements_form uikit_formElements_form_wide'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_input'}})
                             +form-input({
                                 title:{
                                     text: {tag:'h3', content:'Text field'},
@@ -104,12 +104,12 @@ block body
                                 },
                                 input:{
                                     attr:{
-                                        class: 'js_form-input_maskDate',
+                                        class: 'form-input_maskDate',
                                         placeholder:'ДД.ММ.ГГГГ'
                                     }
                                 }
                             })
-                    +form({attr:{class:'theme-formElements_form theme-formElements_form_wide'}})
+                    +form({attr:{class:'uikit_formElements_form uikit_formElements_form_wide'}})
                         +form-selectDate({
                             arrival:{
                                 title:{
@@ -134,7 +134,7 @@ block body
                                 }
                             }
                         })
-                    +form({attr:{class:'theme-formElements_form'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +form-dropdown({
                             title:{
                                 text: {tag:'h3', content:'filter date dropdown'}
@@ -145,7 +145,7 @@ block body
                                 }
                             }
                         })
-                    +form({attr:{class:'theme-formElements_form'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +form-input({
                             title:{
                                 text: {tag:'h3', content:'subscription text field'}
@@ -155,12 +155,12 @@ block body
                             },
                             button:{enable: true}
                         })
-                +column({attr:{class:'theme-formElements_column theme-formElements_column_central'}})
-                    +form({attr:{class:'theme-formElements_form'}})
+                +column({attr:{class:'uikit_formElements_column uikit_formElements_column_central'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +title({
                             text:{tag:'h3',content:'Checkbox buttons'}
                         })
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_checkbox'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_checkbox'}})
                             +form-checkbox({
                                 title:{
                                     text:{
@@ -188,11 +188,11 @@ block body
                                     attr:{checked:'checked'}
                                 } 
                             })
-                    +form({attr:{class:'theme-formElements_form'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +title({
                             text:{tag:'h3',content:'Radio buttons'}
                         })
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_radio'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_radio'}})
                             +form-radio({
                                 title:{
                                     text:{
@@ -216,11 +216,11 @@ block body
                                     attr:{name:'testRadio'}
                                 } 
                             })
-                    +form({attr:{class:'theme-formElements_form'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +title({
                             text:{tag:'h3',content:'Toggle'}
                         })
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_toggle'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_toggle'}})
                             +form-toggle({
                                 title:{
                                     text:{
@@ -244,11 +244,11 @@ block body
                                     attr:{name:'testRadio'}
                                 } 
                             })
-                    +form({attr:{class:'theme-formElements_form'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +title({
                             text:{tag:'h3',content:'like button'}
                         })
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_like'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_like'}})
                             +form-like({
                                 button:{
                                     content:'2'
@@ -262,11 +262,11 @@ block body
                                     attr:{checked:'checked'}
                                 }
                             })
-                    +form({attr:{class:'theme-formElements_form'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +title({
                             text:{tag:'h3',content:'rate button'}
                         })  
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_rate'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_rate'}})
                             +form-rate({
                                 defaultRate: 4,
                                 input:{
@@ -279,9 +279,9 @@ block body
                                     attr:{name:'rateButtons2'}
                                 }
                             })                                           
-                +column({attr:{class:'theme-formElements_column'}})
-                    +form({attr:{class:'theme-formElements_form'}})
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_slider'}})
+                +column({attr:{class:'uikit_formElements_column'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_slider'}})
                             +form-slider({
                                 title: {
                                     text:{tag:'h3',content:'range slider'},
@@ -290,11 +290,11 @@ block body
                                 defaultPoints: [5000, 10000],
                                 input:{attr:{name:'rateButtons1', min:'0', max:'15000', postfix: '₽'}}
                             })   
-                    +form({attr:{class:'theme-formElements_form'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +title({
                             text:{tag:'h3',content:'buttons'}
                         })
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_buttons'}}) 
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_buttons'}}) 
                             +form-button({content: 'CLICK ME'})
                             +form-button({
                                 attr: {
@@ -302,7 +302,7 @@ block body
                                 }, 
                                 content: 'CLICK ME'
                             })
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_buttons'}}) 
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_buttons'}}) 
                             +form-button({
                                 attr:{
                                     class:'form-button_bordered'
@@ -315,7 +315,7 @@ block body
                                 }, 
                                 content: 'CLICK ME'
                             })
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_buttons'}}) 
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_buttons'}}) 
                             +form-button({
                                 attr:{
                                     class:'form-button_simple'
@@ -334,16 +334,16 @@ block body
                                 }, 
                                 content: 'Перейти к оплате'
                             })
-                    +form({attr:{class:'theme-formElements_form'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
                         +title({
                             text:{tag:'h3',content:'pagination'}
                         })
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_pagination'}}) 
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_pagination'}}) 
                             +form-pagination
-            +page-content({attr:{class:'theme-formElements_content'}})
-                +column({attr:{class:'theme-formElements_column'}})
-                    +form({attr:{class:'theme-formElements_form'}})
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_dropdowns'}})
+            +page-content({attr:{class:'uikit_formElements_content'}})
+                +column({attr:{class:'uikit_formElements_column'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_dropdowns'}})
                             +form-dropdown({
                                 attr:{class: 'form-dropdown_rooms_closed'},
                                 title:{
@@ -406,8 +406,8 @@ block body
                                         {content: 'Ванные комнаты'}
                                     ]
                                 })  
-                +column({attr:{class:'theme-formElements_column theme-formElements_column_central '}})
-                    +form({attr:{class:'theme-formElements_form theme-formElements_form_wide theme-formElements_form_offset'}})
+                +column({attr:{class:'uikit_formElements_column uikit_formElements_column_central '}})
+                    +form({attr:{class:'uikit_formElements_form uikit_formElements_form_wide uikit_formElements_form_offset'}})
                         +form-dropdown({
                             attr: {class: 'form-dropdown_guests'},
                             title: {
@@ -433,8 +433,8 @@ block body
                                 ],
                                 enableControls: true
                             })
-                +column({attr:{class:'theme-formElements_column'}})
-                    +form({attr:{class:'theme-formElements_form theme-formElements_form_wide'}})
+                +column({attr:{class:'uikit_formElements_column'}})
+                    +form({attr:{class:'uikit_formElements_form uikit_formElements_form_wide'}})
                         +form-dropdown({
                             attr: {class: 'form-dropdown_guests_filled'},
                             title: {
@@ -466,10 +466,76 @@ block body
                                 ],
                                 enableControls: true
                             })
-            +page-content({attr:{class:'theme-formElements_content'}})
-                +column({attr:{class:'theme-formElements_column'}})
-                    +form({attr:{class:'theme-formElements_form'}})
-                        +container({attr:{class:'theme-formElements_container theme-formElements_container_dropdowns'}})
+            +page-content({attr:{class:'uikit_formElements_content uikit_formElements_content_bottom'}})
+                +column({attr:{class:'uikit_formElements_column'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_dropdowns'}})
+                            +form-dropdown({
+                                title:{
+                                    text: {tag:'h3', content:'dropdown'},
+                                    subtext: {tag:'h3', content: 'default'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'form-dropdown_input_solid',
+                                        value:'2 спальни, 2 кровати...',
+                                    }
+                                },
+                                body: {
+                                    attr: {class: 'form-dropdown_body_solid'}
+                                }
+                            })                                
+                            +form-dropdown({
+                                title:{
+                                    text: {tag:'h3', content:'dropdown'},
+                                    subtext: {tag:'h3', content: 'expanded'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'form-dropdown_input_solid',
+                                        value:'2 спальни, 2 кровати...',
+                                    }
+                                },
+                                body: {
+                                    attr: {class: 'form-dropdown_body_solid'}
+                                }
+                            })
+                +column({attr:{class:'uikit_formElements_column'}})
+                    +form({attr:{class:'uikit_formElements_form uikit_formElements_form_bottom_offset'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_dropdowns'}})
+                            +form-dropdown({
+                                title:{
+                                    text: {tag:'h3', content:'dropdown'},
+                                    subtext: {tag:'h3', content: 'default'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'form-dropdown_input_solid',
+                                        value:'2 спальни, 2 кровати...',
+                                    }
+                                },
+                                body: {
+                                    attr: {class: 'form-dropdown_body_solid'}
+                                }
+                            })                                
+                            +form-dropdown({
+                                title:{
+                                    text: {tag:'h3', content:'dropdown'},
+                                    subtext: {tag:'h3', content: 'expanded'}
+                                },
+                                input:{
+                                    attr:{
+                                        class: 'form-dropdown_input_solid',
+                                        value:'2 спальни, 2 кровати...',
+                                    }
+                                },
+                                body: {
+                                    attr: {class: 'form-dropdown_body_solid'}
+                                }
+                            })
+                +column({attr:{class:'uikit_formElements_column'}})
+                    +form({attr:{class:'uikit_formElements_form'}})
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_dropdowns'}})
                             +form-dropdown({
                                 title:{
                                     text: {tag:'h3', content:'dropdown'},

@@ -1,6 +1,10 @@
-export const formInput = {
-    setMask(inputClass) {
-        require("./jquery.maskedinput.js");
-        $(`.${inputClass}`).mask('99.99.9999');
+import { form } from "../form"
+
+export class FormInput {
+    constructor(options) {
+        Object.assign(this, options)
+        this.input = new form.Input({
+            node: this.node.querySelector('.form-input_input')
+        })
     }
 }

@@ -4,7 +4,7 @@ mixin form-dropdown(extData = {})
     - data.title = {attr: {class: 'form-dropdown_title'}}
     - data.input = {attr: {class: 'form-dropdown_input'}}
     - data.button = {attr: {class: 'form-dropdown_button'}}
-    - data.body = {attr: {class: 'form-dropdown_body'}}
+    - data.body = {attr: {class: 'form-dropdown_body form-dropdown_body_hidden'}}
 
     if extData
         +mergeData(data, extData)

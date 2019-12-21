@@ -1,15 +1,6 @@
-export const formQuantity = {
-    init(options = {}) {
-        let objects = []
-        document.querySelectorAll('.js_form-quantity').forEach((formQuantity) => {
-            options.object = formQuantity
-            objects.push(new FormQuantity(options))
-        })
-        return objects
-    }
-}
+import { form, Button } from '../../../blocks'
 
-class FormQuantity {
+export class FormQuantity {
     constructor(options) {
         Object.assign(this, options)
         this.minValue = this.minValue || 0
@@ -18,129 +9,183 @@ class FormQuantity {
         this.initElements()
         this.initControls()
         this.initTitle()  
-
-        this.addEvents()
-    }
-    addEvents() {
-        this.addElementsEvents()
-        if(this.controls.object) this.addControlsEvents()
     }
     initElements() {
-        this.elements = []
+        this.elements = new Elements()
 
-        this.object.querySelectorAll('.form-quantity_element').forEach((elementObject) => {
-            let element = {
-                object: elementObject,
-                title: elementObject.textContent,
-                input: elementObject.querySelector('.form-quantity_input'),
-                buttons: {
-                    remove: elementObject.querySelector('.form-quantity_button_remove'),
-                    add: elementObject.querySelector('.form-quantity_button_add')
-                }
+        this.node.querySelectorAll('.form-quantity_element').forEach((elementObject) => {
+            let element = new Element({
+                node: elementObject,
+                minValue: this.minValue,
+                maxValue: this.maxValue
+            })
+
+            element.buttons.remove.onClick = () => {
+                element.input.removeQuantity()
+                if(!this.elements.hasValues() && this.controls.node) this.controls.buttons.clear.hide()
+                if(this.title.node) this.title.update()
+
             }
-            this.elements.push(element)
-        })
-    }
-    addElementsEvents() {
-        let _this = this
-        this.elements.forEach((element) => {
-            element.buttons.remove.addEventListener('click', () => {
-                element.input.value = element.input.value > _this.minValue?--element.input.value:_this.minValue
-                _this.updateTitle()
-                _this.updateControlsClearButton()
-            })
-            element.buttons.add.addEventListener('click', () => {
-                element.input.value = element.input.value < _this.maxValue?++element.input.value:_this.maxValue
-                _this.updateTitle()
-                _this.updateControlsClearButton()
-            })
-            element.input.addEventListener('change', () => {
-                element.input.value = element.input.value > _this.minValue?--element.input.value:_this.minValue
-                element.input.value = element.input.value < _this.maxValue?++element.input.value:_this.maxValue
-                _this.updateTitle()
-                _this.updateControlsClearButton()
-            })
-        })
+            element.buttons.add.onClick = () => {
+                element.input.addQuantity()
+                if(this.elements.hasValues() && this.controls.node) this.controls.buttons.clear.show()
+                if(this.title.node) this.title.update()
+                
+            }
+            element.input.onChange = () => {
+                element.input.verifyRange()
+                if(this.elements.hasValues() && this.controls.node) this.controls.buttons.clear.show()
+                else if(this.controls.node) this.controls.buttons.clear.hide()
+
+                if(this.title.node) this.title.update()
+            }
+
+            this.elements.nodeList.push(element)
+        })   
     }
     initControls() {
-        this.controls = {object: this.object.querySelector('.form-quantity_controls')}
-        if(this.controls.object) {
-            this.controls.buttons = {
-                clear: this.controls.object.querySelector('.form-quantity_button_clear'),
-                confirm: this.controls.object.querySelector('.form-quantity_button_confirm')
-            }
-            this.updateControlsClearButton()
-        }
-    }
-    updateControlsClearButton() {
-        if(this.controls.object) {
-            let hasFilledElements = this.elements.some((element) => element.input.value != 0)
-            
-            if(!hasFilledElements) this.controls.buttons.clear.classList.add('form-quantity_button_hidden')
-            else this.controls.buttons.clear.classList.remove('form-quantity_button_hidden')
-        }
-    }
-    addControlsEvents() {
-        let _this = this
-        this.controls.buttons.clear.addEventListener('click', () => {
-            _this.elements.forEach((element) => element.input.value = 0)
-            _this.initElements()
-            _this.initControls()
-            _this.initTitle()
+        this.controls = new Controls({
+            node: this.node.querySelector('.form-quantity_controls')
         })
+
+        if(this.controls.node) {
+            this.controls.buttons.clear.onClick = () => {
+                this.elements.clearValues()
+                this.controls.buttons.clear.hide()
+                if(this.title.node) this.title.update()
+            } 
+            
+            if(!this.elements.hasValues()) this.controls.buttons.clear.hide()
+        }   
     }
     initTitle(title = this.title) {
-        if(title) {
-            this.title = {
-                object: document.querySelector(title.class),
-                type: 'separated',
-                ...title,
-            }
-            this.title.default = this.title.default || this.getTitle()
-            this.updateTitle()
-        }
-    }
-    updateTitle() {
-        if(this.title) {
-            this.title.value = this.generateTitle()
-            this.setTitle()
-        }
-    }
-    setTitle() {
-        if(this.title.object.nodeName === 'INPUT') this.title.object.value = this.title.value
-        else this.title.object.innerHTML = this.title.value
-    }
-    getTitle() {
-        if(this.title.object.nodeName === 'INPUT') return this.title.object.value
-        else return this.title.object.textContent
-    }
-    generateTitle() {
-        let title = ''
-        let _this = this
+        this.title = new Title(title)
 
-        this.elements.forEach((element) => {
-            if(_this.title.type === 'separated') {
-                let letterSpace = 10.5  // approximate letter space
-                let titleLetters = element.input.value.length + element.title.length 
-                let titleLettersCapacity = _this.title.object.offsetWidth / letterSpace
+        this.title.generate = () => {
+            let newTitle = ''
 
-                if((title.length + titleLetters) <= titleLettersCapacity) {
-                    if(element.input.value !== '0') {
-                        if(title) title += ', '
-                        title += element.input.value + ' ' + element.title.toLowerCase()
+            this.elements.nodeList.forEach((element) => {
+                if(this.title.type === 'separated') {
+                    if((newTitle.length + element.titleLength) <= this.title.maxLength) {
+                        if(element.input.getValue() !== '0') {
+                            if(newTitle) newTitle += ', '
+                            newTitle += element.input.getValue() + ' ' + element.title.toLowerCase()
+                        }
+                    } else {
+                        newTitle += '...'
                     }
                 } else {
-                    title += '...'
+                    newTitle = newTitle || 0
+                    newTitle += parseInt(element.input.getValue())
                 }
-            } else {
-                title = title || 0
-                title += parseInt(element.input.value)
+            })
+
+            if(this.title.type === 'summury' && newTitle) newTitle = newTitle + ' ' + this.title.getDeclension(newTitle, this.title.declensions)
+            
+            return newTitle || this.title.default
+        }
+
+        this.title.update = () => {
+            this.title.setValue(this.title.generate())            
+        }
+        
+        if(this.title.node) {
+            this.title.update()
+        }   
+    }
+}
+class Elements {
+    constructor() {
+        this.nodeList = []
+    }
+    hasValues() {
+        return this.nodeList.some((element) => element.input.getValue() != false)
+    }
+    clearValues() {
+        this.nodeList.forEach((element) => element.input.clear())
+    }
+}
+class Element {
+    constructor(options) {
+        Object.assign(this, options)
+        
+        this.input = new form.Input({
+            node: this.node.querySelector('.form-quantity_input'),
+            minValue: this.minValue,
+            maxValue: this.maxValue,
+            verifyRange() {
+                if(this.node.value < this.minValue) this.setValue(this.minValue)
+                else if(this.node.value > this.maxValue) this.setValue(this.maxValue)
+            },
+            addQuantity() {
+                this.setValue(this.getValue() -(- 1))
+                this.verifyRange()
+            },
+            removeQuantity() {
+                this.setValue(this.getValue() - 1)
+                this.verifyRange()
             }
         })
 
-        if(this.title.type === 'summury' && title) title = title + ' ' + this.getDeclension(title, this.title.declensions)
+        this.buttons = {
+            remove: new Button({
+                node: this.node.querySelector('.form-quantity_button_remove')
+            }),
+            add: new Button({
+                node: this.node.querySelector('.form-quantity_button_add')
+            })
+        }
 
-        return title || _this.title.default
+        this.title = this.node.textContent
+        this.titleLength = this.input.node.value.length + this.title.length
+    }
+}
+class Controls {
+    constructor(options) {
+        Object.assign(this, options)
+        if(this.node) {
+            this.buttons = {
+                clear: new Button({
+                    node: this.node.querySelector('.form-quantity_button_clear'),
+                    hide() {
+                        this.node.classList.add('form-quantity_button_hidden')
+                    },
+                    show() {
+                        this.node.classList.remove('form-quantity_button_hidden')
+                    }
+                }),
+                confirm: new Button({
+                    node: this.node.querySelector('.form-quantity_button_confirm')
+                })
+            }
+        }
+    }
+}
+class Title {
+    constructor(options) {
+        Object.assign(this, options)
+        if(this.node) {
+            this.type = this.type || 'separated'
+            this.default = this.default || this.setDefault()
+            this.maxLength = this.node.offsetWidth / 10.5 // approximate letter space
+        }
+    }
+    getValue() {
+        if(this.node.nodeName === 'INPUT') return this.node.value
+        else return this.node.textContent
+    }
+    setValue(newValue) {
+        if(this.node.nodeName === 'INPUT') this.node.value = newValue
+        else this.node.insertHTML = newValue        
+    }
+
+    setDefault() {
+        this.default = this.getValue()
+        return this.default
+    }
+    insertTitle() {
+        if(this.node.nodeName === 'INPUT') this.node.value = this.value
+        else this.node.innerHTML = this.value
     }
     getDeclension(num, expressions) {
         let result;
@@ -159,5 +204,4 @@ class FormQuantity {
         }
         return result;
     }
-
 }

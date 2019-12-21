@@ -1,15 +1,29 @@
-import Blocks from '../../../lib/blocks'; 
-
-export default class Input extends Blocks {
+export class Input {
     constructor(options) {
-        super()
-        this.blockname = 'input'
-        this.template = require(`./${this.blockname}.pug`)
+        Object.assign(this, options)
+        require("./jquery.maskedinput.js")
 
-        super.create(options)
+        this.addEvents()
     }
-    setMask() {
-        require("./jquery.maskedinput.js");
-        this.object.mask('99.99.9999');
+    addEvents() {
+        this.node.addEventListener('onChange', () => {
+            this.onChange()
+        })
+    }
+    onChange() {
+        console.log('onChange:')
+        console.log(this.node)
+    }
+    setValue(newValue) {
+        this.node.value = newValue
+    }
+    getValue() {
+        return this.node.value
+    }
+    clear() {
+        this.node.value = 0
+    }
+    setMask(mask) {
+        $(this.node).mask(mask);
     }
 }
