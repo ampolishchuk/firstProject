@@ -1,0 +1,10 @@
+@import dropdown_container_hidden
+    
+=dropdown_container($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .dropdown_container#{$mixinClass}
+        width: 100%
+        +dropdown_container_hidden
+        @content

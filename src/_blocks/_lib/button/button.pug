@@ -1,9 +1,9 @@
 mixin button(extData = {})
-    - var data = {}
+    - var data = {attr: {class: 'button' }}
 
     if extData
         +mergeData(data, extData)
 
-    button.button(type='button')&attributes(data.attr)
-        | #{data.content}
+    button(type='button')&attributes(data.attr)
+        div.helper_button_border #{data.content}
         block

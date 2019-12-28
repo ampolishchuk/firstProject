@@ -1,0 +1,17 @@
+mixin dropdown(extData = {})
+    -
+        let data = {
+            attr: {class: 'dropdown'},
+            title: {attr: {class: 'dropdown_title'}},
+            button: {attr: {class: 'dropdown_button'}},
+            container: {attr: {class: 'dropdown_container'}},
+        }
+
+    if extData
+        +mergeData(data, extData)
+
+    section&attributes(data.attr)
+        +title(data.title)
+        +button(data.button)
+        +container(data.container)
+            block

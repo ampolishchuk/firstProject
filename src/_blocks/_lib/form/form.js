@@ -6,10 +6,12 @@ import { formPagination } from "./form-pagination/form-pagination";
 
 import { formSlider } from "./form-slider/form-slider";
 
-import { formRate } from "./form-rate/form-rate";
+import { FormRate } from "./form-rate/form-rate";
 import { Input } from "./input/input";
 
 import { FormInput } from "./form-input/form-input";
+import { FormRadio } from "./form-radio/form-radio";
+import { FormToggle } from "./form-toggle/form-toggle";
 
 
 export const form = {
@@ -17,8 +19,10 @@ export const form = {
     FormInput: FormInput, 
     FormDropdown: FormDropdown, 
     FormQuantity: FormQuantity,
-     
-    formRate: formRate, 
+    FormRadio: FormRadio, 
+    FormToggle: FormToggle,     
+    FormRate: FormRate, 
+
     formSlider: formSlider, 
     formPagination: formPagination
 }

@@ -268,13 +268,13 @@ block body
                         })  
                         +container({attr:{class:'uikit_formElements_container uikit_formElements_container_rate'}})
                             +form-rate({
-                                defaultRate: 4,
+                                attr:{class:'form-rate_fourStars'},
                                 input:{
                                     attr:{name:'rateButtons1'}
                                 }
                             })     
                             +form-rate({
-                                defaultRate: 5,
+                                attr:{class:'form-rate_fiveStars'},
                                 input:{
                                     attr:{name:'rateButtons2'}
                                 }
@@ -467,105 +467,119 @@ block body
                                 enableControls: true
                             })
             +page-content({attr:{class:'uikit_formElements_content uikit_formElements_content_bottom'}})
-                +column({attr:{class:'uikit_formElements_column'}})
-                    +form({attr:{class:'uikit_formElements_form'}})
-                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_dropdowns'}})
-                            +form-dropdown({
-                                title:{
-                                    text: {tag:'h3', content:'dropdown'},
-                                    subtext: {tag:'h3', content: 'default'}
-                                },
-                                input:{
-                                    attr:{
-                                        class: 'form-dropdown_input_solid',
-                                        value:'2 спальни, 2 кровати...',
-                                    }
-                                },
-                                body: {
-                                    attr: {class: 'form-dropdown_body_solid'}
-                                }
-                            })                                
-                            +form-dropdown({
-                                title:{
-                                    text: {tag:'h3', content:'dropdown'},
-                                    subtext: {tag:'h3', content: 'expanded'}
-                                },
-                                input:{
-                                    attr:{
-                                        class: 'form-dropdown_input_solid',
-                                        value:'2 спальни, 2 кровати...',
-                                    }
-                                },
-                                body: {
-                                    attr: {class: 'form-dropdown_body_solid'}
-                                }
-                            })
+                +column({attr:{class:'uikit_formElements_column uikit_formElements_column_dropdowns'}})
+                    +dropdown({
+                        attr: {class: 'uikit_dropdown'},
+                        title: {
+                            text: {tag: 'h3', content: 'Expandable checkbox list'}
+                        }
+                    })
+                    +dropdown({
+                        attr: {class: 'uikit_dropdown uikit_dropdown_opened'},
+                        title: {
+                            text: {tag: 'h3', content: 'Expandable checkbox list'}
+                        }
+                    })
+                        +form({attr:{class:'uikit_formElements_form'}})
+                            +container({attr:{class:'uikit_formElements_container uikit_formElements_container_checkbox'}})
+                                +form-checkbox({title:{ text:{content:'Завтрак'}}})
+                                +form-checkbox({title:{ text:{content:'Письменный стол'}}, input: {attr: {checked: 'checked'}}})
+                                +form-checkbox({title:{ text:{content:'Стул для кормления'}}, input: {attr: {checked: 'checked'}}})
+                                +form-checkbox({title:{ text:{content:'Кроватка'}}, input: {attr: {checked: 'checked'}}})
+                                +form-checkbox({title:{ text:{content:'Телевизор'}}})
+                                +form-checkbox({title:{ text:{content:'Шампунь'}}})
+                                +form-checkbox({title:{ text:{content:'Телевизор'}}})
+                                +form-checkbox({title:{ text:{content:'Шампунь'}}})
                 +column({attr:{class:'uikit_formElements_column'}})
                     +form({attr:{class:'uikit_formElements_form uikit_formElements_form_bottom_offset'}})
-                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_dropdowns'}})
-                            +form-dropdown({
-                                title:{
-                                    text: {tag:'h3', content:'dropdown'},
-                                    subtext: {tag:'h3', content: 'default'}
-                                },
-                                input:{
-                                    attr:{
-                                        class: 'form-dropdown_input_solid',
-                                        value:'2 спальни, 2 кровати...',
+                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_dropdowns_rich'}})
+                            +title({
+                                text: {tag: 'h3', content: 'Rich Checkbox Buttons'}
+                            })               
+                            +container({attr:{class:'uikit_formElements_container uikit_formElements_container_checkbox_rich'}})
+                                +form-checkbox({
+                                    title:{
+                                        attr: {class: 'form-checkbox_title_rich'},
+                                        text:{
+                                            content:'Широкий коридор'
+                                        },
+                                        subtext: {content: 'Ширина коридоров в номере не менее 91 см'}
                                     }
-                                },
-                                body: {
-                                    attr: {class: 'form-dropdown_body_solid'}
-                                }
-                            })                                
-                            +form-dropdown({
-                                title:{
-                                    text: {tag:'h3', content:'dropdown'},
-                                    subtext: {tag:'h3', content: 'expanded'}
-                                },
-                                input:{
-                                    attr:{
-                                        class: 'form-dropdown_input_solid',
-                                        value:'2 спальни, 2 кровати...',
+                                })
+                                +form-checkbox({
+                                    title:{
+                                        attr: {class: 'form-checkbox_title_rich'},
+                                        text:{
+                                            content:'Помощник для инвалидов'
+                                        },
+                                        subtext: {content: 'На 1 этаже вас встретит специалист и проводит до номера.'}
                                     }
-                                },
-                                body: {
-                                    attr: {class: 'form-dropdown_body_solid'}
-                                }
-                            })
+                                })
                 +column({attr:{class:'uikit_formElements_column'}})
-                    +form({attr:{class:'uikit_formElements_form'}})
-                        +container({attr:{class:'uikit_formElements_container uikit_formElements_container_dropdowns'}})
-                            +form-dropdown({
-                                title:{
-                                    text: {tag:'h3', content:'dropdown'},
-                                    subtext: {tag:'h3', content: 'default'}
-                                },
-                                input:{
-                                    attr:{
-                                        class: 'form-dropdown_input_solid',
-                                        value:'2 спальни, 2 кровати...',
-                                    }
-                                },
-                                body: {
-                                    attr: {class: 'form-dropdown_body_solid'}
-                                }
-                            })                                
-                            +form-dropdown({
-                                title:{
-                                    text: {tag:'h3', content:'dropdown'},
-                                    subtext: {tag:'h3', content: 'expanded'}
-                                },
-                                input:{
-                                    attr:{
-                                        class: 'form-dropdown_input_solid',
-                                        value:'2 спальни, 2 кровати...',
-                                    }
-                                },
-                                body: {
-                                    attr: {class: 'form-dropdown_body_solid'}
-                                }
-                            })
-    //-     +panel()
+                    +container({attr:{class:'uikit_container_bullet'}})
+                        +title({
+                            attr: {class: 'uikit_title_bullet'},
+                            text: {tag: 'h3', content: 'Bullet list'}
+                        })
+                        +list({
+                            tag: 'ul',
+                            list: [
+                                'Нельзя с питомцами',
+                                'Без вечеринок и мероприятий',
+                                'Время прибытия — после 13:00, а выезд до 12:00'
+                            ]
+                        })
+            +page-content({attr:{class:'uikit_formElements_content uikit_content_verybottom'}})
+                +column({attr:{class:'uikit_formElements_column uikit_formElements_column_dropdowns'}})
+                    +container({attr:{class:'uikit_container_features'}})
+                        +feature({
+                            icon: {attr: {class: 'feature_icon_comfort'}},
+                            title: {
+                                text: {content: 'Комфорт'},
+                                subtext: {content: 'Шумопоглощающие стены'}
+                            }
+                        })
+                        +feature({
+                            icon: {attr: {class: 'feature_icon_facilities'}},
+                            title: {
+                                text: {content: 'Комфорт'},
+                                subtext: {content: 'Шумопоглощающие стены'}
+                            }
+                        })
+                +column({attr:{class:'uikit_formElements_column uikit_column_comments'}})
+                    +container({attr:{class:'uikit_container_comments'}})
+                        +comment({
+                            image: {attr: {src: 'img/commentIcon.png'}},
+                            title: {
+                                text: {content: 'Мурад Сарафанов'},
+                                subtext: {content: '5 дней назад'}
+                            },
+                            formLike: {
+                                input: {attr: {checked: 'checked'}},
+                                button: {content: 12}
+                            },
+                            container_content: {
+                                content: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+                            }
+                        })
+        +page-panel({attr:{class:'uikit_panel_cards'}})
+            +page-content({attr:{class:'uikit_content_cards'}})
+                +column({attr:{class:'uikit_column_cards'}})
+                    +card
+                        +findRoom              
+                    +card
+                        +registration
+                +column({attr:{class:'uikit_column_cards'}})
+                    +card
+                        +reservation
+                    +card
+                        +login
+                +column({attr:{class:'uikit_column_cards'}})
+                    +card
+                        +calendar
+                    +card({attr:{class:'card_room'}})
+                        +room
+                    +card({attr:{class:'card_room'}})
+                        +room
     //- +js('vendors.js')
 

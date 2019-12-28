@@ -1,8 +1,11 @@
 import './uikit.sass'
 
 import {
-    form
+    form,
+    Dropdown,
+    Slider
 } from '../_blocks/blocks'
+
 
 
 document.querySelectorAll('.form-input').forEach((formInput) => {
@@ -12,6 +15,10 @@ document.querySelectorAll('.form-input').forEach((formInput) => {
     if(formInput.node.querySelector('.form-input_maskDate')) 
         formInput.input.setMask('99.99.9999')
 })
+
+// form-radio
+document.querySelectorAll('.form-radio').forEach((node) => new form.FormRadio({node}))
+
 
 document.querySelectorAll('.form-dropdown').forEach((formDropdown) => {
     formDropdown = new form.FormDropdown({
@@ -54,8 +61,23 @@ document.querySelectorAll('.form-quantity').forEach((formQuantity) => {
     }
 })
 
+document.querySelectorAll('.form-rate').forEach((node) => {
+    if(node.classList.contains('form-rate_fourStars')) new form.FormRate({node, defaultRate: 4})
+    else if(node.classList.contains('form-rate_fiveStars')) new form.FormRate({node, defaultRate: 5})
+    else new form.FormRate({node})
+})
+
+document.querySelectorAll('.dropdown').forEach((node) => {
+    let dropdown = new Dropdown({node})
+    if(dropdown.node.classList.contains('uikit_dropdown_opened')) dropdown.open()
+})
+document.querySelectorAll('.slider').forEach((node) => {
+    let slider = new Slider({node})
+
+    // console.log(slider)
+})
+
 var blocks = {    
-    formRate: form.formRate.init('.js_form-rate'),
     formSlider: form.formSlider.init('.js_form-slider'),
     formPagination: form.formPagination.init({
         currentPage: 1,

@@ -1,15 +1,26 @@
 export class Button {
-    constructor(options) {
+
+    constructor(options = {}) {
         Object.assign(this, options)
-        this.addEvents()
+        this.tag = 'button'
+        this.class = 'button'
+
+        this.node = this.node || this.create(options.class || this.class)
+
     }
-    addEvents() {
-        this.node.addEventListener('click', () => {
-            this.onClick()
-        })
+    onClick(callback) {
+        if(callback) {
+            this.node.addEventListener('click', () => callback())
+        }
+        else {
+            console.log('onClick:')
+            console.log(this.node)
+        }
+
     }
-    onClick() {
-        console.log('onClick:')
-        console.log(this.node)
+    create(...classes) {
+        let node = document.createElement(this.tag)
+        node.classList.add(this.class, ...classes)
+        return node
     }
 }

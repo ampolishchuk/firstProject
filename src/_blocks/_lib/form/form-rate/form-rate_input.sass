@@ -1,10 +1,7 @@
-@import 'form-rate_input_checked'
-    
 =form-rate_input($mixinClass:'')
     @if $mixinClass != ''
         $mixinClass: '.#{$mixinClass}'
 
     .form-rate_input#{$mixinClass}
         display: none
-        +form-rate_input_checked
         @content

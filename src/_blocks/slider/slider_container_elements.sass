@@ -1,0 +1,11 @@
+=slider_container_elements($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .slider_container_elements#{$mixinClass}
+        display: flex
+        flex-direction: row
+        flex-wrap: no-wrap
+        overflow: hidden
+        transition: .2s
+        @content

@@ -1,4 +1,4 @@
-import { form, Button } from "../../../blocks"
+import { form, Button, Title } from "../../../blocks"
 
 export class FormDropdown {
     constructor(options) {
@@ -19,10 +19,10 @@ export class FormDropdown {
         this.initButton()
     }
     initButton() {
-        this.button.onClick = () => {
+        this.button.onClick(() => {
             if(this.closed) this.open()
             else this.close()
-        }
+        })
     }
     initBody() {
         if(this.closed) this.close()

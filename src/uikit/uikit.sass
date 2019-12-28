@@ -6,16 +6,24 @@
 // fonts
 +font-face('Montserrat', '../_fonts/Montserrat/Montserrat-Regular', 'Montserrat')
 +font-face('Material Icons', '../_fonts/MaterialIcons/MaterialIcons-Regular', 'MaterialIcons')
++font-face('Quiсksand', '../_fonts/Quiсksand/Quicksand-Regular')
 
 // lib
 +page
     font-family: 'Montserrat'    
-    
     & *
         padding: 0
         margin: 0
+        box-sizing: border-box
     +page-panel
+        &.uikit_panel_cards
+            background-color: #F4F4F6
     +page-content
+        &.uikit_content_cards
+            display: grid
+            padding: 150px 140px
+            grid-template-columns: 380px 380px 320px
+            grid-gap: 40px
         &.uikit_colorsTypes_content
             display: grid
             grid-template-columns: 1fr 1fr
@@ -28,7 +36,17 @@
                 padding-top: 143px
             &.uikit_formElements_content_bottom
                 padding-top: 132px
+            &.uikit_content_verybottom
+                padding-top: 0px
+                margin-bottom: 200px
 +column
+    &.uikit_column_cards 
+        display: flex
+        flex-direction: column
+        & > * 
+            margin-bottom: 40px
+            &:last-child
+                margin-bottom: 0
     &.uikit_colorsTypes_column
         display: flex
         flex-direction: column
@@ -39,7 +57,20 @@
         width: 320px
         &.uikit_formElements_column_central     
             align-items: center
+    &.uikit_formElements_column_dropdowns
+        display: grid
+        grid-gap: 50px
+    &.uikit_column_comments
+        width: 740px
+        padding-left: 25px
 +container
+    &.uikit_container_comments
+        margin-top: 10px
+    &.uikit_container_features
+        display: grid
+        grid-gap: 20px
+    &.uikit_container_bullet 
+        width: 260px
     &.uikit_formElements_container_input
         display: grid
         grid-template-columns: 1fr
@@ -50,6 +81,10 @@
         grid-gap: 9px
         margin-top: 15px
         width: 230px
+    &.uikit_formElements_container_checkbox_rich
+        display: grid
+        grid-template-columns: 1fr
+        grid-gap: 5px
     &.uikit_formElements_container_radio
         display: grid
         grid-template-columns: 1fr 1fr
@@ -89,8 +124,20 @@
         display: grid
         grid-template-columns: 1fr
         grid-gap: 20px
+    &.uikit_formElements_container_dropdowns_rich
+        display: grid
+        grid-template-columns: 1fr
+        grid-gap: 14px
 +title
+    &.uikit_title_bullet
+        margin-bottom: 12px
 +button
++icon
++image
++dropdown
+    &.uikit_dropdown
+        width: 266px
++list
 
 +form
     &.uikit_formElements_form
@@ -125,3 +172,15 @@
 +type
     +type-tag
     +type-example
+
++feature
++comment
++findRoom
++registration
++reservation
++login
++calendar
++room
++card
++price
++slider

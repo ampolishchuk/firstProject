@@ -1,15 +1,18 @@
 mixin form-dropdown(extData = {})
-    - var data = {attr: { class: 'js_form-dropdown' }}
-    - data.label = {attr: {class: 'form-dropdown_label'}}
-    - data.title = {attr: {class: 'form-dropdown_title'}}
-    - data.input = {attr: {class: 'form-dropdown_input'}}
-    - data.button = {attr: {class: 'form-dropdown_button'}}
-    - data.body = {attr: {class: 'form-dropdown_body form-dropdown_body_hidden'}}
+    -
+        var data = {
+            attr: {class: 'form-dropdown'},
+            label: {attr: {class: 'form-dropdown_label'}},
+            title: {attr: {class: 'form-dropdown_title'}},
+            input: {attr: {class: 'form-dropdown_input'}},
+            button: {attr: {class: 'form-dropdown_button'}},
+            body: {attr: {class: 'form-dropdown_body form-dropdown_body_hidden'}},
+        }
 
     if extData
         +mergeData(data, extData)
 
-    div.form-dropdown&attributes(data.attr)
+    div&attributes(data.attr)
         +label(data.label)      
             +title(data.title)
             +input(data.input)    

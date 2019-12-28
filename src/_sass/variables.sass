@@ -1,10 +1,13 @@
 
 // fonts    
-=font-face($family, $path, $svg, $weight: normal, $style: normal)
+=font-face($family, $path, $svg: 0, $weight: normal, $style: normal)
     @font-face
         font-family: $family
-        src: url('#{$path}.eot')
-        src: url('#{$path}.eot?#iefix') format('embedded-opentype'), url('#{$path}.woff') format('woff'), url('#{$path}.ttf') format('truetype'), url('#{$path}.svg##{$svg}') format('svg')
+        // src: url('#{$path}.eot')
+        // src: url('#{$path}.eot?#iefix') format('embedded-opentype')
+        // src: url('#{$path}.woff') format('woff')
+        src: url('#{$path}.ttf') format('truetype')
+        // src: url('#{$path}.svg##{$svg}') format('svg')
         font-weight: $weight
         font-style: $style
     
@@ -12,6 +15,12 @@
 $size_containerWidth: 1440px
 
 // icons
+$features_icon_comfort: 'mood'
+$features_icon_facilities: 'location_city'
+$features_icon_comfort: 'mood'
+$icon_list-element: '\e3a6'
+$icon_dropdown-button: '\e5cf'
+$icon_dropdown-button_reverse: '\e5ce'
 $form-dropdown_button: '\e5cf'
 $form-checkbox_button: '\e5ca'
 $form-input_button: '\e5c8'

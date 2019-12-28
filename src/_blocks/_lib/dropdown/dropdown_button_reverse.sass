@@ -1,0 +1,8 @@
+=dropdown_button_reverse($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.dropdown_button_reverse#{$mixinClass}
+        &::before
+            content: $icon_dropdown-button_reverse
+        @content

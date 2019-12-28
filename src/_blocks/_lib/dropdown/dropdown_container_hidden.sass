@@ -1,0 +1,7 @@
+=dropdown_container_hidden($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    &.dropdown_container_hidden#{$mixinClass}
+        display: none
+        @content

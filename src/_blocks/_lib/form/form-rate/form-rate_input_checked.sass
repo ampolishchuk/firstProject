@@ -1,9 +1,0 @@
-=form-rate_input_checked($mixinClass:'')
-    @if $mixinClass != ''
-        $mixinClass: '.#{$mixinClass}'
-
-    &.form-rate_input_checked#{$mixinClass},
-    &.form-rate_input:checked 
-        & + .form-rate_title > .form-rate_button 
-            +form-rate_button_checked 
-        @content

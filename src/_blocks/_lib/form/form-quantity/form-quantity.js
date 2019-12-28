@@ -24,19 +24,16 @@ export class FormQuantity {
                 element.input.removeQuantity()
                 if(!this.elements.hasValues() && this.controls.node) this.controls.buttons.clear.hide()
                 if(this.title.node) this.title.update()
-
             }
             element.buttons.add.onClick = () => {
                 element.input.addQuantity()
                 if(this.elements.hasValues() && this.controls.node) this.controls.buttons.clear.show()
-                if(this.title.node) this.title.update()
-                
+                if(this.title.node) this.title.update()                
             }
             element.input.onChange = () => {
                 element.input.verifyRange()
                 if(this.elements.hasValues() && this.controls.node) this.controls.buttons.clear.show()
                 else if(this.controls.node) this.controls.buttons.clear.hide()
-
                 if(this.title.node) this.title.update()
             }
 

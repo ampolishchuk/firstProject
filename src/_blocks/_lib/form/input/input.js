@@ -20,6 +20,15 @@ export class Input {
     getValue() {
         return this.node.value
     }
+    check() {
+        this.node.checked = true
+    }
+    uncheck() {
+        this.node.checked = false
+    }
+    isChecked() {
+        return this.node.checked
+    }
     clear() {
         this.node.value = 0
     }

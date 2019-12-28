@@ -1,0 +1,7 @@
+=calendar($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .calendar#{$mixinClass}
+        height: 367px
+        @content

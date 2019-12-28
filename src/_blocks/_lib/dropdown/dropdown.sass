@@ -1,0 +1,12 @@
+@import dropdown_button
+@import dropdown_container
+    
+=dropdown($mixinClass:'')
+    @if $mixinClass != ''
+        $mixinClass: '.#{$mixinClass}'
+
+    .dropdown#{$mixinClass}
+        position: relative
+        +dropdown_button
+        +dropdown_container
+        @content

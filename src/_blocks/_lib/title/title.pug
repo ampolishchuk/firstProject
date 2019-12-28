@@ -1,12 +1,15 @@
 mixin title(extData = {})
-    - var data = {}
-    - data.text = {tag: 'span'}
-    - data.subtext = {tag: 'span'}
+    -
+        var data = {
+            attr: {class: 'title'},            
+            text: {tag: 'span'},
+            subtext: {tag: 'span'}
+        }
 
     if extData
         +mergeData(data, extData)
 
-    span.title&attributes(data.attr)
+    div&attributes(data.attr)
         #{data.text.tag}.title-text&attributes(data.text.attr)
             | #{data.text.content}
         #{data.subtext.tag}.title-subtext&attributes(data.subtext.attr)

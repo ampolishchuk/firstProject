@@ -50,7 +50,10 @@ class ProjectPaths {
     load() {
         this.loadEntiresList()
         this.src.js.list = this.findFiles('js', this.src.blocks.root)
-        this.src.img.list = this.findFiles('png', this.src.blocks.root)
+        this.src.img.list = [
+            ...this.findFiles('png', this.src.blocks.root), 
+            ...this.findFiles('png', this.src.img.root)
+        ]
         this.src.fonts.list = this.findFolders('js', this.src.fonts.root, false)
         this.src.pages.list = this.findFiles('pug', this.src.pages.root)
     }
@@ -214,6 +217,9 @@ module.exports = {
             { from: paths.src.js.root, to: 'js' },
             ...paths.src.js.list.map(path => (
                 { from: path, to: `js` }
+            )),
+            ...paths.src.img.list.map(path => (
+                { from: path, to: `img` }
             ))
         ]),
         new webpack.ProvidePlugin({

@@ -1,9 +1,9 @@
 mixin container(extData = {})
-    - var data = {}
+    - var data = {attr: {class: 'container' }}
 
     if extData
         +mergeData(data, extData)
 
-    section.container&attributes(data.attr)
+    div&attributes(data.attr)
         | #{data.content}
         block
