@@ -47,7 +47,7 @@
   "description": "My first project",
   "dependencies": {
     "fs": "0.0.1-security",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-mask-plugin": "^1.14.16",
     "jquery.maskedinput": "^1.4.1",
     "material-icons": "^0.3.1"
